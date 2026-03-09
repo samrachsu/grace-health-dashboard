@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grace Health System — AI Command Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #F5F4EF;
+  color: #1A1A1A;
+  min-height: 100vh;
+}
+
+/* ── Design Tokens ── */
+:root {
+  --teal: #1A6B5A;
+  --teal-light: #e8f5f0;
+  --amber: #E8A020;
+  --amber-light: #fef3dc;
+  --red: #C0392B;
+  --red-light: #fde8e6;
+  --cream: #F5F4EF;
+  --white: #FFFFFF;
+  --text: #1A1A1A;
+  --text-secondary: #666666;
+  --text-label: #888888;
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --radius: 12px;
+}
+
+/* ── Header / Nav ── */
+.header {
+  background: var(--cream);
+  border-bottom: 1px solid #e0ddd6;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.logo-main {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--teal);
+  letter-spacing: -0.3px;
+}
+.logo-sub {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--teal);
+  letter-spacing: 0.5px;
+}
+.live-dot {
+  width: 8px; height: 8px;
+  background: var(--teal);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(26,107,90,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(26,107,90,0); }
+}
+.timestamp {
+  font-size: 12px;
+  color: var(--text-label);
+}
+
+/* ── Tabs ── */
+.tab-bar {
+  background: var(--cream);
+  border-bottom: 1px solid #e0ddd6;
+  padding: 0 32px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+}
+.tab-btn {
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active {
+  color: var(--teal);
+  font-weight: 600;
+  border-bottom-color: var(--teal);
+}
+
+/* ── Content ── */
+.content { padding: 24px 32px 48px; max-width: 1280px; margin: 0 auto; }
+.tab-content { display: none; opacity: 0; transition: opacity 150ms ease; }
+.tab-content.active { display: block; opacity: 1; }
+.page-title { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.page-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+
+/* ── User Pill ── */
+.user-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border: 1.5px solid var(--teal);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--teal);
+}
+
+/* ── Timeline ── */
+.timeline { padding: 0 8px; }
+.timeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+  padding-bottom: 16px;
+}
+.timeline-step:last-child { padding-bottom: 0; }
+.timeline-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 32px;
+  width: 2px;
+  height: calc(100% - 20px);
+  background: #e0ddd6;
+}
+.timeline-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--teal-light);
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--teal);
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+}
+.timeline-label {
+  font-size: 14px;
+  font-weight: 500;
+  padding-top: 6px;
+}
+
+/* ── Status Banners ── */
+.status-banner {
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 16px;
+  display: none;
+}
+.status-banner.success {
+  background: var(--teal-light);
+  color: var(--teal);
+  border: 1px solid var(--teal);
+}
+.status-banner.error {
+  background: var(--red-light);
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+
+/* ── Metric Cards Row ── */
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.metric-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 24px;
+}
+.metric-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-label);
+  margin-bottom: 6px;
+}
+.metric-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.metric-value.red { color: var(--red); }
+.metric-value.amber { color: var(--amber); }
+.metric-subtitle {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* ── Panels ── */
+.panel {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.panel-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.panel-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ── Tables ── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.data-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-label);
+  border-bottom: 2px solid #eee;
+}
+.data-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: #fafaf7; }
+
+/* ── Badges ── */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.badge-red { background: var(--red); }
+.badge-amber { background: var(--amber); }
+.badge-green { background: var(--teal); }
+
+/* ── Stat Cards (inline) ── */
+.stat-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.stat-card {
+  flex: 1;
+  min-width: 140px;
+  background: #fafaf7;
+  border-radius: 8px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--teal);
+}
+.stat-card.red { border-left-color: var(--red); }
+.stat-card.amber { border-left-color: var(--amber); }
+.stat-card .stat-val {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+.stat-card .stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* ── Bar Chart Rows ── */
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.bar-row:last-child { border-bottom: none; }
+.bar-label {
+  width: 180px;
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.bar-track {
+  flex: 1;
+  height: 22px;
+  background: #f0eeea;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--teal);
+  transition: width 0.8s ease;
+}
+.bar-fill.amber { background: var(--amber); }
+.bar-amount {
+  width: 110px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  flex-shrink: 0;
+}
+.bar-pct {
+  width: 50px;
+  text-align: right;
+  font-size: 12px;
+  color: var(--text-label);
+  flex-shrink: 0;
+}
+
+/* ── Quote Block ── */
+.quote-block {
+  border-left: 4px solid var(--teal);
+  padding: 16px 20px;
+  background: #fafaf7;
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* ── Alert Boxes ── */
+.alert-box {
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.alert-box.red {
+  background: var(--red);
+  color: #fff;
+}
+.alert-box.amber {
+  background: var(--amber-light);
+  border: 1px solid var(--amber);
+  color: #7a5a00;
+}
+.alert-box.teal {
+  border-left: 4px solid var(--teal);
+  background: #fafaf7;
+  color: var(--text-secondary);
+}
+
+/* ── Pill Badges ── */
+.pill-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pill {
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--teal-light);
+  color: var(--teal);
+}
+
+/* ── Domain Cards (2x2) ── */
+.domain-card {
+  background: #fafaf7;
+  border-radius: 8px;
+  padding: 16px;
+  border-left: 3px solid var(--teal);
+}
+.domain-card.red { border-left-color: var(--red); }
+.domain-card.amber { border-left-color: var(--amber); }
+.domain-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.domain-stat {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.domain-detail {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Score Bars ── */
+.score-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.score-row:last-child { border-bottom: none; }
+.score-dept {
+  width: 140px;
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.score-track {
+  flex: 1;
+  height: 18px;
+  background: #f0eeea;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.score-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.8s ease;
+}
+.score-fill.red { background: var(--red); }
+.score-fill.amber { background: var(--amber); }
+.score-fill.green { background: var(--teal); }
+.score-val {
+  width: 60px;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.score-badge {
+  width: 70px;
+  flex-shrink: 0;
+}
+.score-issue {
+  width: 160px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+/* ── Tier Cards ── */
+.tier-row {
+  display: flex;
+  gap: 12px;
+}
+.tier-card {
+  flex: 1;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #fafaf7;
+}
+.tier-card.red { border-left: 3px solid var(--red); }
+.tier-card.amber { border-left: 3px solid var(--amber); }
+.tier-card.green { border-left: 3px solid var(--teal); }
+.tier-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.tier-val {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.tier-sub {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* ── Run Button ── */
+.run-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(26,107,90,0.3);
+  transition: all 0.2s;
+}
+.run-btn:hover {
+  background: #155a4b;
+  box-shadow: 0 6px 16px rgba(26,107,90,0.4);
+  transform: translateY(-1px);
+}
+.run-btn:active { transform: translateY(0); }
+
+/* ── Agent Grid ── */
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.agent-card {
+  background: #fafaf7;
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 3px solid var(--teal);
+}
+.agent-name {
+  font-size: 13px;
+  font-weight: 500;
+}
+.agent-id {
+  font-size: 11px;
+  color: var(--text-label);
+  font-family: monospace;
+}
+
+/* ── Modal ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+.modal h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.modal p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.btn-cancel {
+  padding: 10px 20px;
+  background: #f0eeea;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+.btn-confirm {
+  padding: 10px 20px;
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ── Run Log ── */
+.run-log {
+  display: none;
+  margin-top: 16px;
+  background: #1a1a1a;
+  color: #a3e4b8;
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  line-height: 1.8;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.run-log.show { display: block; }
+
+/* ── Summary Row ── */
+.summary-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.summary-item {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.summary-item strong {
+  color: var(--text);
+}
+
+/* ── Total Row ── */
+.total-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0 4px;
+  border-top: 2px solid var(--teal);
+  margin-top: 4px;
+}
+.total-row .bar-label { font-weight: 700; color: var(--teal); }
+.total-row .bar-amount { font-weight: 700; color: var(--teal); font-size: 15px; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .metric-row { grid-template-columns: repeat(2, 1fr); }
+  .agent-grid { grid-template-columns: repeat(2, 1fr); }
+  .panel-grid-2 { grid-template-columns: 1fr; }
+  .tier-row { flex-direction: column; }
+}
+@media (max-width: 600px) {
+  .metric-row { grid-template-columns: 1fr; }
+  .content { padding: 16px; }
+  .header { padding: 12px 16px; }
+  .tab-bar { padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header class="header">
+  <div class="logo">
+    <span class="logo-main">Grace Health System</span>
+    <span class="logo-sub">AI Command Center</span>
+  </div>
+  <div class="header-right">
+    <span class="timestamp" id="timestamp"></span>
+    <span class="live-indicator"><span class="live-dot"></span> LIVE</span>
+    <span class="user-pill">Dr. Hsieng Su</span>
+  </div>
+</header>
+
+<!-- ═══════════════════ TABS ═══════════════════ -->
+<nav class="tab-bar">
+  <button class="tab-btn active" data-tab="overview">Overview</button>
+  <button class="tab-btn" data-tab="revenue">Revenue Cycle</button>
+  <button class="tab-btn" data-tab="clinical">Clinical Operations</button>
+  <button class="tab-btn" data-tab="engagement">Patient Engagement</button>
+  <button class="tab-btn" data-tab="compliance">Compliance &amp; Safety</button>
+  <button class="tab-btn" data-tab="supply">Supply Chain</button>
+  <button class="tab-btn" data-tab="control">Agent Control</button>
+</nav>
+
+<!-- ═══════════════════ CONTENT ═══════════════════ -->
+<main class="content">
+
+<!-- ──────── TAB 1: OVERVIEW ──────── -->
+<section class="tab-content active" id="tab-overview">
+  <h1 class="page-title">Overview</h1>
+  <p class="page-subtitle">Grace Health System — AI-Powered Operations Summary</p>
+
+  <div class="metric-row">
+    <div class="metric-card">
+      <div class="metric-label">Total Monthly Value</div>
+      <div class="metric-value">$671,257</div>
+      <div class="metric-subtitle">Across 7 value streams</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Annual ROI</div>
+      <div class="metric-value">67:1</div>
+      <div class="metric-subtitle">$8.1M projected annual value</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Active AI Agents</div>
+      <div class="metric-value">12</div>
+      <div class="metric-subtitle">All systems operational</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Tasks Processed</div>
+      <div class="metric-value">777</div>
+      <div class="metric-subtitle">Last orchestrator run</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">ROI by Value Stream</div>
+    <div class="bar-row">
+      <span class="bar-label">Care Gap Closure</span>
+      <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+      <span class="bar-amount">$243,200</span>
+      <span class="bar-pct">36.2%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Access Intelligence</span>
+      <div class="bar-track"><div class="bar-fill" style="width:83.4%"></div></div>
+      <span class="bar-amount">$202,950</span>
+      <span class="bar-pct">30.2%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Readmission Prevention</span>
+      <div class="bar-track"><div class="bar-fill" style="width:46.3%"></div></div>
+      <span class="bar-amount">$112,500</span>
+      <span class="bar-pct">16.8%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Supply Chain</span>
+      <div class="bar-track"><div class="bar-fill amber" style="width:40.9%"></div></div>
+      <span class="bar-amount">$99,417</span>
+      <span class="bar-pct">14.8%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Physician Documentation</span>
+      <div class="bar-track"><div class="bar-fill" style="width:2.8%"></div></div>
+      <span class="bar-amount">$6,771</span>
+      <span class="bar-pct">1.0%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Prior Authorization</span>
+      <div class="bar-track"><div class="bar-fill" style="width:2.2%"></div></div>
+      <span class="bar-amount">$5,363</span>
+      <span class="bar-pct">0.8%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Claims Submission</span>
+      <div class="bar-track"><div class="bar-fill" style="width:0.8%"></div></div>
+      <span class="bar-amount">$1,057</span>
+      <span class="bar-pct">0.2%</span>
+    </div>
+    <div class="total-row">
+      <span class="bar-label">Total</span>
+      <div style="flex:1"></div>
+      <span class="bar-amount">$671,257 / mo</span>
+      <span class="bar-pct" style="width:auto;color:var(--teal);font-weight:600">$8.1M / yr</span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Board-Ready Summary</div>
+    <div class="quote-block">
+      Grace Health System's AI Command Center processed 777 tasks in the last 24-hour cycle, identifying $671,257 in monthly value across 7 operational domains. Access Intelligence flagged 2 departments in access crisis — Primary Care (27.9-day new patient wait) and Behavioral Health (28.3-day wait) — with $202,950 in monthly access value identified. Care Gap Closure outreached 150 high-risk patients with bilingual messaging, projecting $243,200 in value-based contract impact. Supply chain variance analysis identified $99,417 in monthly savings. All 12 agents operational. System ready for enterprise deployment.
+    </div>
+  </div>
+</section>
+
+<!-- ──────── TAB 2: REVENUE CYCLE ──────── -->
+<section class="tab-content" id="tab-revenue">
+  <h1 class="page-title">Revenue Cycle</h1>
+  <p class="page-subtitle">Prior Authorization Triage &amp; Claims Submission</p>
+
+  <div class="metric-row">
+    <div class="metric-card">
+      <div class="metric-label">Prior Auth Requests</div>
+      <div class="metric-value">50</div>
+      <div class="metric-subtitle">Processed this cycle</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">High Denial Risk</div>
+      <div class="metric-value red">2</div>
+      <div class="metric-subtitle">Flagged for senior review</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Clean Claim Rate</div>
+      <div class="metric-value">75.5%</div>
+      <div class="metric-subtitle">151 of 200 claims clean</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Revenue Cycle Value</div>
+      <div class="metric-value">$6,420</div>
+      <div class="metric-subtitle">Combined monthly value</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Prior Authorization Risk Queue</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Request ID</th><th>Diagnosis</th><th>Payer</th><th>Urgency</th><th>Risk Score</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>PA-001</td><td>Cardiac (I25.10)</td><td>UnitedHealthcare</td><td>Urgent</td><td>87</td><td><span class="badge badge-red">RED</span></td></tr>
+        <tr><td>PA-002</td><td>Diabetes (E11.65)</td><td>BCBS</td><td>Routine</td><td>72</td><td><span class="badge badge-amber">YELLOW</span></td></tr>
+        <tr><td>PA-003</td><td>COPD (J44.1)</td><td>Aetna</td><td>Emergent</td><td>85</td><td><span class="badge badge-red">RED</span></td></tr>
+        <tr><td>PA-004</td><td>Orthopedic (M17.11)</td><td>Cigna</td><td>Routine</td><td>45</td><td><span class="badge badge-green">GREEN</span></td></tr>
+        <tr><td>PA-005</td><td>Cardiac (I21.9)</td><td>Humana</td><td>Urgent</td><td>68</td><td><span class="badge badge-amber">YELLOW</span></td></tr>
+        <tr><td>PA-006</td><td>Diabetes (E11.9)</td><td>BCBS</td><td>Routine</td><td>32</td><td><span class="badge badge-green">GREEN</span></td></tr>
+        <tr><td>PA-007</td><td>COPD (J44.0)</td><td>UnitedHealthcare</td><td>Urgent</td><td>71</td><td><span class="badge badge-amber">YELLOW</span></td></tr>
+        <tr><td>PA-008</td><td>Orthopedic (M23.x)</td><td>Aetna</td><td>Routine</td><td>28</td><td><span class="badge badge-green">GREEN</span></td></tr>
+        <tr><td>PA-009</td><td>Cardiac (I48.91)</td><td>Cigna</td><td>Routine</td><td>55</td><td><span class="badge badge-amber">YELLOW</span></td></tr>
+        <tr><td>PA-010</td><td>Diabetes (E10.9)</td><td>Humana</td><td>Routine</td><td>19</td><td><span class="badge badge-green">GREEN</span></td></tr>
+      </tbody>
+    </table>
+    <div class="stat-row" style="margin-top:16px">
+      <div class="stat-card red">
+        <div class="stat-val">2</div>
+        <div class="stat-label">RED — Senior staff review required</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-val">20</div>
+        <div class="stat-label">YELLOW — Auto-draft prepared</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">28</div>
+        <div class="stat-label">GREEN — Queued for submission</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Claims Processing Summary</div>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-val">151</div>
+        <div class="stat-label">Submitted — $712,590 total charges</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-val">24</div>
+        <div class="stat-label">Under Review — $369,835 total charges</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-val">25</div>
+        <div class="stat-label">Rejected — $269,155 total charges</div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="panel-title" style="font-size:13px;margin-bottom:10px">Top Rejection Reasons</div>
+      <table class="data-table">
+        <tbody>
+          <tr><td style="width:70%">Excessive charge amount</td><td style="font-weight:600">7</td></tr>
+          <tr><td>Incompatible dx/CPT pairing</td><td style="font-weight:600">5</td></tr>
+          <tr><td>Missing insurance member ID</td><td style="font-weight:600">3</td></tr>
+          <tr><td>Duplicate claim</td><td style="font-weight:600">3</td></tr>
+          <tr><td>Invalid diagnosis codes</td><td style="font-weight:600">2</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── TAB 3: CLINICAL OPERATIONS ──────── -->
+<section class="tab-content" id="tab-clinical">
+  <h1 class="page-title">Clinical Operations</h1>
+  <p class="page-subtitle">Physician Documentation, Risk Stratification &amp; Patient Follow-Up</p>
+
+  <div class="metric-row">
+    <div class="metric-card">
+      <div class="metric-label">Physicians Monitored</div>
+      <div class="metric-value">20</div>
+      <div class="metric-subtitle">Across 5 departments</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">HIGH Burden</div>
+      <div class="metric-value red">5</div>
+      <div class="metric-subtitle">Physicians flagged RED</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">AI Hours Saved/Week</div>
+      <div class="metric-value">70.2 hrs</div>
+      <div class="metric-subtitle">Documentation relief</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Readmission Prevention</div>
+      <div class="metric-value">$112,500</div>
+      <div class="metric-subtitle">Monthly value</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Physician Documentation Health</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Department</th><th>Avg Burden</th><th>Completion (min)</th><th>Open Notes</th><th>Doc Hrs/Wk</th><th>AI Savings/Wk</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>ED</strong></td><td>51.8</td><td>20.7 min</td><td>104</td><td>37 hrs</td><td style="color:var(--teal);font-weight:600">20.7 hrs</td></tr>
+        <tr><td><strong>Cardiology</strong></td><td>41.0</td><td>16.4 min</td><td>82</td><td>25 hrs</td><td style="color:var(--teal);font-weight:600">16.4 hrs</td></tr>
+        <tr><td><strong>Orthopedics</strong></td><td>34.7</td><td>13.9 min</td><td>69</td><td>27 hrs</td><td style="color:var(--teal);font-weight:600">13.9 hrs</td></tr>
+        <tr><td><strong>Internal Med</strong></td><td>25.9</td><td>10.4 min</td><td>52</td><td>25 hrs</td><td style="color:var(--teal);font-weight:600">10.4 hrs</td></tr>
+        <tr><td><strong>Primary Care</strong></td><td>21.9</td><td>8.8 min</td><td>44</td><td>8 hrs</td><td style="color:var(--teal);font-weight:600">8.8 hrs</td></tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:20px">
+      <div class="panel-title" style="font-size:13px;margin-bottom:10px">RED Alert — Most Burdened Physicians</div>
+      <div class="stat-row">
+        <div class="stat-card red">
+          <div class="stat-val">DR-006 <span style="font-size:12px;font-weight:400;color:var(--text-secondary)">Cardiology</span></div>
+          <div class="stat-label">14 open notes · 281 min avg · Burden: 3,939</div>
+        </div>
+        <div class="stat-card red">
+          <div class="stat-val">DR-017 <span style="font-size:12px;font-weight:400;color:var(--text-secondary)">ED</span></div>
+          <div class="stat-label">13 open notes · 230 min avg · Burden: 2,987</div>
+        </div>
+        <div class="stat-card red">
+          <div class="stat-val">DR-002 <span style="font-size:12px;font-weight:400;color:var(--text-secondary)">Internal Med</span></div>
+          <div class="stat-label">14 open notes · 138 min avg · Burden: 1,925</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Post-Discharge Follow-Up Queue</div>
+    <div class="tier-row">
+      <div class="tier-card red">
+        <div class="tier-title" style="color:var(--red)">RED — Urgent</div>
+        <div class="tier-val">49</div>
+        <div class="tier-sub">Avg risk 68.4 · Immediate outreach</div>
+      </div>
+      <div class="tier-card amber">
+        <div class="tier-title" style="color:var(--amber)">YELLOW — Monitor</div>
+        <div class="tier-val">15</div>
+        <div class="tier-sub">Avg risk 60.9 · Appointment reminder</div>
+      </div>
+      <div class="tier-card green">
+        <div class="tier-title" style="color:var(--teal)">GREEN — Routine</div>
+        <div class="tier-val">36</div>
+        <div class="tier-sub">Avg risk 31.1 · Day 7/14 check-in</div>
+      </div>
+    </div>
+    <div class="summary-row" style="margin-top:14px">
+      <span class="summary-item"><strong>CHF (I50.9):</strong> 25</span>
+      <span class="summary-item" style="margin-left:16px"><strong>Pneumonia (J18.9):</strong> 25</span>
+      <span class="summary-item" style="margin-left:16px"><strong>Hip Replacement:</strong> 25</span>
+      <span class="summary-item" style="margin-left:16px"><strong>COPD (J44.1):</strong> 25</span>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── TAB 4: PATIENT ENGAGEMENT ──────── -->
+<section class="tab-content" id="tab-engagement">
+  <h1 class="page-title">Patient Engagement</h1>
+  <p class="page-subtitle">Care Gap Closure &amp; Access Intelligence</p>
+
+  <div class="metric-row">
+    <div class="metric-card">
+      <div class="metric-label">Patients Outreached</div>
+      <div class="metric-value">150</div>
+      <div class="metric-subtitle">Bilingual messaging active</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">High Priority</div>
+      <div class="metric-value red">44</div>
+      <div class="metric-subtitle">Immediate outreach</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Access Value</div>
+      <div class="metric-value">$202,950</div>
+      <div class="metric-subtitle">Monthly opportunity</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Equity Alert</div>
+      <div class="metric-value amber">2.1x</div>
+      <div class="metric-subtitle">Medicaid vs commercial wait</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Care Gap Outreach Campaign</div>
+    <div style="margin-bottom:16px">
+      <div class="bar-row">
+        <span class="bar-label">HIGH (70-100)</span>
+        <div class="bar-track"><div class="bar-fill" style="width:29.3%"></div></div>
+        <span class="bar-amount">44 patients</span>
+        <span class="bar-pct">avg 79.5</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">MEDIUM (40-69)</span>
+        <div class="bar-track"><div class="bar-fill amber" style="width:42%"></div></div>
+        <span class="bar-amount">63 patients</span>
+        <span class="bar-pct">avg 52.5</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">LOW (5-39)</span>
+        <div class="bar-track"><div class="bar-fill" style="width:28.7%;background:#ccc"></div></div>
+        <span class="bar-amount">43 patients</span>
+        <span class="bar-pct">avg 25.3</span>
+      </div>
+    </div>
+    <div class="pill-row" style="margin-bottom:14px">
+      <span class="pill">Mammogram</span>
+      <span class="pill">A1C Check</span>
+      <span class="pill">Annual Wellness</span>
+      <span class="pill">Colonoscopy</span>
+      <span class="pill">Flu Shot</span>
+      <span class="pill">Eye Exam</span>
+      <span class="pill">BP Check</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-item"><strong>English:</strong> 105</span>
+      <span class="summary-item" style="margin-left:16px"><strong>Spanish:</strong> 45</span>
+      <span class="summary-item" style="margin-left:32px"><strong>SMS:</strong> 45</span>
+      <span class="summary-item" style="margin-left:16px"><strong>Portal:</strong> 75</span>
+      <span class="summary-item" style="margin-left:16px"><strong>Letter:</strong> 30</span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Department Access Scores</div>
+    <div class="score-row">
+      <span class="score-dept">Primary Care</span>
+      <div class="score-track"><div class="score-fill red" style="width:25%"></div></div>
+      <span class="score-val">25/100</span>
+      <span class="score-badge"><span class="badge badge-red">RED</span></span>
+      <span class="score-issue">Wait: 27.9 days</span>
+    </div>
+    <div class="score-row">
+      <span class="score-dept">Behavioral Health</span>
+      <div class="score-track"><div class="score-fill red" style="width:35%"></div></div>
+      <span class="score-val">35/100</span>
+      <span class="score-badge"><span class="badge badge-red">RED</span></span>
+      <span class="score-issue">Wait: 28.3 days</span>
+    </div>
+    <div class="score-row">
+      <span class="score-dept">Endocrinology</span>
+      <div class="score-track"><div class="score-fill amber" style="width:70%"></div></div>
+      <span class="score-val">70/100</span>
+      <span class="score-badge"><span class="badge badge-amber">YELLOW</span></span>
+      <span class="score-issue">Wait: 17.4 days</span>
+    </div>
+    <div class="score-row">
+      <span class="score-dept">Neurology</span>
+      <div class="score-track"><div class="score-fill amber" style="width:75%"></div></div>
+      <span class="score-val">75/100</span>
+      <span class="score-badge"><span class="badge badge-amber">YELLOW</span></span>
+      <span class="score-issue">Wait: 17.8 days</span>
+    </div>
+    <div class="score-row">
+      <span class="score-dept">Urgent Care</span>
+      <div class="score-track"><div class="score-fill amber" style="width:75%"></div></div>
+      <span class="score-val">75/100</span>
+      <span class="score-badge"><span class="badge badge-amber">YELLOW</span></span>
+      <span class="score-issue">Cancel: 20.3%</span>
+    </div>
+    <div class="score-row">
+      <span class="score-dept">Cardiology</span>
+      <div class="score-track"><div class="score-fill green" style="width:90%"></div></div>
+      <span class="score-val">90/100</span>
+      <span class="score-badge"><span class="badge badge-green">GREEN</span></span>
+      <span class="score-issue">Healthy access</span>
+    </div>
+    <div class="score-row">
+      <span class="score-dept">Orthopedics</span>
+      <div class="score-track"><div class="score-fill green" style="width:90%"></div></div>
+      <span class="score-val">90/100</span>
+      <span class="score-badge"><span class="badge badge-green">GREEN</span></span>
+      <span class="score-issue">Healthy access</span>
+    </div>
+    <div class="score-row">
+      <span class="score-dept">OB/GYN</span>
+      <div class="score-track"><div class="score-fill green" style="width:90%"></div></div>
+      <span class="score-val">90/100</span>
+      <span class="score-badge"><span class="badge badge-green">GREEN</span></span>
+      <span class="score-issue">Healthy access</span>
+    </div>
+
+    <div class="alert-box amber" style="margin-top:16px">
+      <strong>EQUITY ALERT:</strong> Medicaid patients wait 35.4 days vs Commercial 17.0 days in Primary Care — a 2.1x disparity. Automated escalation triggered.
+    </div>
+
+    <div style="margin-top:16px">
+      <div class="panel-title" style="font-size:13px;margin-bottom:10px">Unreached Patient Tiers</div>
+      <div class="tier-row">
+        <div class="tier-card red">
+          <div class="tier-title" style="color:var(--red)">Tier A — Critical</div>
+          <div class="tier-val">25</div>
+          <div class="tier-sub">High risk + no contact 90d</div>
+        </div>
+        <div class="tier-card amber">
+          <div class="tier-title" style="color:var(--amber)">Tier B — High</div>
+          <div class="tier-val">48</div>
+          <div class="tier-sub">Moderate risk + no contact 60d</div>
+        </div>
+        <div class="tier-card green">
+          <div class="tier-title" style="color:var(--teal)">Tier C — Moderate</div>
+          <div class="tier-val">76</div>
+          <div class="tier-sub">Lower risk + no contact 30d</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── TAB 5: COMPLIANCE & SAFETY ──────── -->
+<section class="tab-content" id="tab-compliance">
+  <h1 class="page-title">Compliance &amp; Safety</h1>
+  <p class="page-subtitle">HIPAA Audit &amp; FHIR Data Integrity</p>
+
+  <div class="metric-row">
+    <div class="metric-card">
+      <div class="metric-label">Compliance Score</div>
+      <div class="metric-value red">33/100</div>
+      <div class="metric-subtitle">Requires immediate attention</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Critical Alerts</div>
+      <div class="metric-value red">8</div>
+      <div class="metric-subtitle">Same-day response required</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">FHIR Records</div>
+      <div class="metric-value">1,094</div>
+      <div class="metric-subtitle">Patients loaded</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Training Compliance</div>
+      <div class="metric-value amber">83%</div>
+      <div class="metric-subtitle">34 staff overdue</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Daily Compliance Digest</div>
+    <div class="panel-grid-2">
+      <div class="domain-card amber">
+        <div class="domain-title">Access Monitoring</div>
+        <div class="domain-stat">73</div>
+        <div class="domain-detail">40 after-hours access events<br>30 VIP record access<br>3 excessive failed login spikes</div>
+      </div>
+      <div class="domain-card red">
+        <div class="domain-title">Policy Currency</div>
+        <div class="domain-stat">15</div>
+        <div class="domain-detail">11 policies overdue for annual review<br>4 missing required fields</div>
+      </div>
+      <div class="domain-card red">
+        <div class="domain-title">Contract Compliance</div>
+        <div class="domain-stat">18</div>
+        <div class="domain-detail">5 PHI vendors WITHOUT BAA (CRITICAL)<br>6 contracts expiring within 90 days</div>
+      </div>
+      <div class="domain-card amber">
+        <div class="domain-title">Training Compliance</div>
+        <div class="domain-stat">34</div>
+        <div class="domain-detail">30 staff with overdue HIPAA training<br>4 new hires past onboarding deadline</div>
+      </div>
+    </div>
+    <div class="alert-box red" style="margin-top:16px">
+      <strong>CRITICAL:</strong> 5 vendors handling PHI have no Business Associate Agreement on file. Same-day remediation required.
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">FHIR Ingestion &amp; Data Quality</div>
+    <div class="summary-row" style="margin-bottom:16px">
+      <span class="summary-item"><strong>Patients:</strong> 1,094</span>
+      <span class="summary-item" style="margin-left:16px"><strong>FHIR version:</strong> R4</span>
+      <span class="summary-item" style="margin-left:16px"><strong>ICD-10:</strong> Normalized</span>
+      <span class="summary-item" style="margin-left:16px"><strong>Dates:</strong> Normalized</span>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Issue</th><th>Count</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Duplicate records detected</td><td>50</td><td><span class="badge badge-green">RESOLVED</span></td></tr>
+        <tr><td>Missing insurance IDs</td><td>91 (8%)</td><td><span class="badge badge-amber">FLAGGED</span></td></tr>
+        <tr><td>Conflicting diagnoses</td><td>30</td><td><span class="badge badge-amber">FLAGGED</span></td></tr>
+        <tr><td>Malformed dates</td><td>3,068 (5%)</td><td><span class="badge badge-green">NORMALIZED</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ──────── TAB 6: SUPPLY CHAIN ──────── -->
+<section class="tab-content" id="tab-supply">
+  <h1 class="page-title">Supply Chain</h1>
+  <p class="page-subtitle">OR/Surgical Supply Cost Variance &amp; Contract Compliance</p>
+
+  <div class="metric-row">
+    <div class="metric-card">
+      <div class="metric-label">Variance Identified</div>
+      <div class="metric-value amber">$41,200</div>
+      <div class="metric-subtitle">Above contract this month</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Substitution Savings</div>
+      <div class="metric-value">$58,217</div>
+      <div class="metric-subtitle">Via preferred vendors</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Monthly Value</div>
+      <div class="metric-value">$99,417</div>
+      <div class="metric-subtitle">Combined opportunity</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Departments at Risk</div>
+      <div class="metric-value red">1</div>
+      <div class="metric-subtitle">OR flagged RED</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Department Supply Health</div>
+    <div class="stat-row">
+      <div class="stat-card red">
+        <div class="stat-val">OR <span style="font-size:14px;font-weight:500;color:var(--red)">35/100</span></div>
+        <div class="stat-label">$284,500 actual vs $243,300 expected · 10 CRITICAL · 20 WARNING</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-val">Pharmacy <span style="font-size:14px;font-weight:500;color:var(--amber)">58/100</span></div>
+        <div class="stat-label">Moderate variance · 5 CRITICAL · 15 WARNING</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">Central Supply <span style="font-size:14px;font-weight:500;color:var(--teal)">82/100</span></div>
+        <div class="stat-label">Within contract · 3 CRITICAL · 10 WARNING</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">High Priority Supply Worklist</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Department</th><th>Item</th><th>Vendor</th><th>Actual</th><th>Expected</th><th>Variance</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>OR</td><td>Hip Prosthetic</td><td>MedSupply Co</td><td>$8,200</td><td>$5,900</td><td style="color:var(--red);font-weight:600">+38.9%</td><td><span class="badge badge-red">SUBSTITUTE</span></td></tr>
+        <tr><td>OR</td><td>Knee Implant</td><td>MedSupply Co</td><td>$7,100</td><td>$5,200</td><td style="color:var(--red);font-weight:600">+36.5%</td><td><span class="badge badge-red">SUBSTITUTE</span></td></tr>
+        <tr><td>OR</td><td>Stapling Device</td><td>SurgTech Inc</td><td>$1,850</td><td>$1,400</td><td style="color:var(--amber);font-weight:600">+32.1%</td><td><span class="badge badge-amber">RENEGOTIATE</span></td></tr>
+        <tr><td>Pharmacy</td><td>Biologic Agent</td><td>PharmaCo</td><td>$4,200</td><td>$3,100</td><td style="color:var(--red);font-weight:600">+35.5%</td><td><span class="badge badge-red">SUBSTITUTE</span></td></tr>
+        <tr><td>OR</td><td>Cautery Pads</td><td>MedSupply Co</td><td>$890</td><td>$680</td><td style="color:var(--amber);font-weight:600">+30.9%</td><td><span class="badge badge-amber">RENEGOTIATE</span></td></tr>
+      </tbody>
+    </table>
+    <div class="alert-box teal" style="margin-top:16px">
+      OR department actual spend of $284,500 exceeded contract expectations by $41,200 (16.9%) over the past 30 days, driven primarily by off-contract implant purchases. Switching to preferred vendor contracts for the top 3 variance items represents an estimated $18,400 in monthly savings.
+    </div>
+  </div>
+</section>
+
+<!-- ──────── TAB 7: AGENT CONTROL ──────── -->
+<section class="tab-content" id="tab-control">
+  <h1 class="page-title">Agent Control</h1>
+  <p class="page-subtitle">System Status &amp; Orchestrator Control</p>
+
+  <div class="metric-row">
+    <div class="metric-card">
+      <div class="metric-label">Active Agents</div>
+      <div class="metric-value">12/12</div>
+      <div class="metric-subtitle">All agents operational</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Last Orchestrator Run</div>
+      <div class="metric-value">Today</div>
+      <div class="metric-subtitle">777 tasks processed</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Next Scheduled Run</div>
+      <div class="metric-value">Tomorrow 6:00 AM</div>
+      <div class="metric-subtitle">Full daily sequence</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">System Health</div>
+      <div class="metric-value">READY</div>
+      <div class="metric-subtitle">CEO demo cleared</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Orchestrator Control</div>
+    <div style="text-align:center;padding:20px 0">
+      <button class="run-btn" id="runBtn" onclick="showModal()">&#9654; RUN FULL ORCHESTRATOR NOW</button>
+    </div>
+    <div class="status-banner success" id="successBanner">Orchestrator triggered successfully. All 12 agents are running. Check back in 10 minutes for updated results.</div>
+    <div class="status-banner error" id="errorBanner">Unable to reach Orchestrator. Check n8n connection and try again.</div>
+
+    <div style="margin-top:24px">
+      <div class="panel-title" style="font-size:13px;margin-bottom:12px">Daily Execution Sequence</div>
+      <div class="timeline">
+        <div class="timeline-step"><div class="timeline-num">1<span class="timeline-dot"></span></div><div class="timeline-label">FHIR Data Ingestion</div></div>
+        <div class="timeline-step"><div class="timeline-num">2<span class="timeline-dot"></span></div><div class="timeline-label">Access Intelligence</div></div>
+        <div class="timeline-step"><div class="timeline-num">3<span class="timeline-dot"></span></div><div class="timeline-label">Supply Chain Variance</div></div>
+        <div class="timeline-step"><div class="timeline-num">4<span class="timeline-dot"></span></div><div class="timeline-label">Patient Risk Stratification</div></div>
+        <div class="timeline-step"><div class="timeline-num">5<span class="timeline-dot"></span></div><div class="timeline-label">Prior Auth Triage</div></div>
+        <div class="timeline-step"><div class="timeline-num">6<span class="timeline-dot"></span></div><div class="timeline-label">Care Gap Closure</div></div>
+        <div class="timeline-step"><div class="timeline-num">7<span class="timeline-dot"></span></div><div class="timeline-label">Patient Follow-Up</div></div>
+        <div class="timeline-step"><div class="timeline-num">8<span class="timeline-dot"></span></div><div class="timeline-label">Physician Documentation Relief</div></div>
+        <div class="timeline-step"><div class="timeline-num">9<span class="timeline-dot"></span></div><div class="timeline-label">Claims Submission</div></div>
+        <div class="timeline-step"><div class="timeline-num">10<span class="timeline-dot"></span></div><div class="timeline-label">Prior Auth Status Tracker</div></div>
+        <div class="timeline-step"><div class="timeline-num">11<span class="timeline-dot"></span></div><div class="timeline-label">HIPAA Audit</div></div>
+        <div class="timeline-step"><div class="timeline-num">12<span class="timeline-dot"></span></div><div class="timeline-label">ROI Reporting</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">All Agent Status</div>
+    <div class="agent-grid">
+      <div class="agent-card">
+        <div><div class="agent-name">Prior Auth Triage</div><div class="agent-id">fuQyUU4hc6iBzAjt</div><div class="agent-id">Orchestrator trigger</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">Care Gap Closure</div><div class="agent-id">JMCpiWZfW9NLexKm</div><div class="agent-id">Orchestrator trigger</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">Patient Follow-Up</div><div class="agent-id">ZYSiRT489LOI6Dlg</div><div class="agent-id">Orchestrator trigger</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">HIPAA Audit</div><div class="agent-id">SQhbSf6mFK3g6Ge3</div><div class="agent-id">Daily 5:00 AM</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">Claims Submission</div><div class="agent-id">Pg7RQz6PIs9wbtre</div><div class="agent-id">Every 6 hours</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">Physician Doc Relief</div><div class="agent-id">7UFD9Zzbf1EPZQQ3</div><div class="agent-id">Every 6 hours</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">FHIR Data Ingestion</div><div class="agent-id">iyqwCSbqtr2yKixQ</div><div class="agent-id">Orchestrator trigger</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">Risk Stratification</div><div class="agent-id">EWI7VP9rz7YcXY8N</div><div class="agent-id">Orchestrator trigger</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">Prior Auth Tracker</div><div class="agent-id">JUbs5BEIPtFAtYRt</div><div class="agent-id">Orchestrator trigger</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">ROI Reporting</div><div class="agent-id">0obEacQ78Eav7tYf</div><div class="agent-id">Orchestrator trigger</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">Healthcare Orchestrator</div><div class="agent-id">jdUVJjBOhidTH0V9</div><div class="agent-id">Daily 6:00 AM + webhook</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">Supply Chain Variance</div><div class="agent-id">HdIidRqB1mE6Woom</div><div class="agent-id">Daily 6:00 AM</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">Access Intelligence</div><div class="agent-id">OWPIJ6UUWTmhSThx</div><div class="agent-id">Daily 5:30 AM</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+      <div class="agent-card">
+        <div><div class="agent-name">Data Normalizer (utility)</div><div class="agent-id">90H7k1J69ix1c9ib</div><div class="agent-id">Called by agents</div></div>
+        <span class="badge badge-green">ACTIVE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════ MODAL ═══════════════════ -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h3>Confirm Orchestrator Run</h3>
+    <p>This will trigger a full 12-agent sequence for Grace Health System. All agents will run in sequence. Estimated time: 8-12 minutes.</p>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="hideModal()">Cancel</button>
+      <button class="btn-confirm" onclick="runOrchestrator()">Confirm &amp; Run</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
+<script>
+// ── Tab Navigation with fade ──
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const current = document.querySelector('.tab-content.active');
+    const next = document.getElementById('tab-' + btn.dataset.tab);
+    if (current === next) return;
+
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    if (current) {
+      current.style.opacity = '0';
+      setTimeout(() => {
+        current.classList.remove('active');
+        current.style.opacity = '';
+        next.classList.add('active');
+        requestAnimationFrame(() => { next.style.opacity = '1'; });
+      }, 150);
+    } else {
+      next.classList.add('active');
+      next.style.opacity = '1';
+    }
+  });
+});
+
+// ── Live Timestamp ──
+function updateTimestamp() {
+  const now = new Date();
+  const opts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+  document.getElementById('timestamp').textContent = 'Updated ' + now.toLocaleTimeString('en-US', opts);
+}
+updateTimestamp();
+setInterval(updateTimestamp, 1000);
+
+// ── Modal ──
+function showModal() {
+  document.getElementById('successBanner').style.display = 'none';
+  document.getElementById('errorBanner').style.display = 'none';
+  document.getElementById('modal').classList.add('show');
+}
+function hideModal() { document.getElementById('modal').classList.remove('show'); }
+
+// ── Orchestrator Run ──
+async function runOrchestrator() {
+  hideModal();
+  const btn = document.getElementById('runBtn');
+  btn.disabled = true;
+  btn.style.opacity = '0.6';
+  btn.textContent = 'RUNNING...';
+
+  try {
+    const resp = await fetch('https://samrachsu.app.n8n.cloud/webhook/orchestrator-run', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ source: 'grace-health-dashboard', triggered_by: 'Dr. Hsieng Su' })
+    });
+
+    if (resp.ok) {
+      document.getElementById('successBanner').style.display = 'block';
+      document.getElementById('errorBanner').style.display = 'none';
+    } else {
+      throw new Error('HTTP ' + resp.status);
+    }
+  } catch (err) {
+    document.getElementById('errorBanner').style.display = 'block';
+    document.getElementById('successBanner').style.display = 'none';
+  }
+
+  btn.disabled = false;
+  btn.style.opacity = '1';
+  btn.innerHTML = '&#9654; RUN FULL ORCHESTRATOR NOW';
+}
+</script>
+</body>
+</html>
