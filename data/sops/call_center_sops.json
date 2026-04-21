@@ -1,0 +1,115 @@
+{
+  "organization": "Grace Health System",
+  "document_type": "call_center_standard_operating_procedures",
+  "version": "4.1",
+  "effective_date": "2026-01-01",
+  "sops": [
+    {
+      "id": "SOP-CC-001",
+      "title": "Call Opening and Patient Identification",
+      "steps": [
+        "Greet caller: 'Thank you for calling Grace Health System. My name is [Agent Name]. How can I assist you today?'",
+        "If patient: Collect first and last name, date of birth (DOB), and verify last 4 of SSN or account number",
+        "If caller is not the patient (family member, caregiver): Verify they are listed as an authorized representative in the patient's record. If not listed, limit to general information only — do NOT share PHI.",
+        "Confirm correct patient record is pulled before proceeding",
+        "Note language preference and initiate interpreter service if needed"
+      ],
+      "hipaa_note": "Never confirm or deny whether an individual is a patient to an unverified caller."
+    },
+    {
+      "id": "SOP-CC-002",
+      "title": "Handling Angry or Distressed Callers",
+      "steps": [
+        "Remain calm and professional at all times",
+        "Acknowledge the patient's frustration: 'I understand this is frustrating and I want to help resolve this for you.'",
+        "Do not argue, interrupt, or match the caller's tone",
+        "If the caller uses abusive or threatening language, issue one warning: 'I want to help you, but I need us to speak respectfully. If the language continues, I will need to end this call.'",
+        "If abusive language continues: 'I'm going to need to end this call. Please call back when you're ready and we will be happy to assist you.' Then disconnect.",
+        "Document the interaction in the call log with timestamps"
+      ]
+    },
+    {
+      "id": "SOP-CC-003",
+      "title": "Appointment Scheduling Workflow",
+      "steps": [
+        "Confirm patient identity (see SOP-CC-001)",
+        "Ask: 'What is the reason for your visit today?' — use triage protocol to determine urgency",
+        "For emergent symptoms: redirect to 911 or ED immediately",
+        "For urgent: offer same-day or next-day appointment",
+        "For routine: offer next available in 3–7 days",
+        "Ask for preferred location, provider (if established), and telehealth vs. in-person preference",
+        "Confirm insurance is active and accepted — advise patient to bring card",
+        "Confirm appointment date, time, provider, and location — read back to patient",
+        "Send confirmation via MyGrace portal, text (if opted in), or mail"
+      ]
+    },
+    {
+      "id": "SOP-CC-004",
+      "title": "Prescription Refill Request",
+      "steps": [
+        "Verify patient identity",
+        "Collect medication name, dose, and prescribing provider",
+        "Confirm this is NOT a controlled substance (Schedule II–V)",
+        "If non-controlled: submit refill request to provider via EHR task — advise 48–72 hour processing",
+        "If controlled substance: explain new prescription is required and schedule appointment",
+        "If patient is running out in less than 72 hours of a critical medication: flag as URGENT to on-call provider",
+        "Do not make clinical recommendations (e.g., dose changes, switching medications) — refer to clinical staff"
+      ]
+    },
+    {
+      "id": "SOP-CC-005",
+      "title": "Test Results Inquiry",
+      "steps": [
+        "Verify patient identity",
+        "Confirm the type of test and approximate date",
+        "Check if results are available in MyGrace patient portal",
+        "If results are released in portal: direct patient to portal and offer to walk through access",
+        "If results are NOT yet released: inform patient that providers review results before releasing — advise to check portal within 3–5 business days or the provider will call",
+        "NEVER interpret lab values or imaging results — refer to provider or nurse",
+        "If patient reports a critical symptom after receiving results: triage immediately (see triage protocol)"
+      ]
+    },
+    {
+      "id": "SOP-CC-006",
+      "title": "Billing and Insurance Inquiries",
+      "steps": [
+        "For general billing questions: provide Billing Department number (555-400-9000) and hours",
+        "For financial hardship inquiries: provide Financial Counseling line (555-400-9010) and mention charity care options",
+        "Do not discuss specific account balances unless patient is verified and question is basic",
+        "For disputes, payment plan setup, or itemized bill requests: transfer to Billing Department",
+        "For insurance verification questions: advise patient to contact their insurer directly or call Grace Health prior to visit"
+      ]
+    },
+    {
+      "id": "SOP-CC-007",
+      "title": "Post-Discharge Follow-Up Calls",
+      "steps": [
+        "Identify yourself and Grace Health System",
+        "Confirm patient was recently discharged from Grace Health",
+        "Ask: 'How are you feeling since your discharge?'",
+        "Review discharge instructions were received and understood",
+        "Confirm follow-up appointment is scheduled — if not, schedule now",
+        "Ask about new or worsening symptoms",
+        "Confirm medications were filled and patient knows how to take them",
+        "Flag any red-flag symptoms to the care coordinator or on-call nurse",
+        "Document outcome in EHR"
+      ]
+    },
+    {
+      "id": "SOP-CC-008",
+      "title": "AI Agent Escalation Triggers",
+      "steps": [
+        "AI agent must transfer to human immediately when:",
+        "— Patient reports emergency symptoms (chest pain, stroke, uncontrolled bleeding, etc.)",
+        "— Patient expresses suicidal ideation or is in mental health crisis",
+        "— Patient or caller becomes abusive or threatening",
+        "— Patient is requesting clinical advice beyond scheduling/FAQs",
+        "— Patient is confused, disoriented, or appears to be in distress",
+        "— Patient requests to speak with a human three or more times",
+        "— Patient's concern cannot be resolved within the AI's knowledge base",
+        "— Caller is a minor calling alone about a health concern",
+        "Upon transfer: AI must summarize caller name, DOB, reason for call, and any triage information to the receiving agent before full handoff"
+      ]
+    }
+  ]
+}

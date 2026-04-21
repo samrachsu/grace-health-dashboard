@@ -1,0 +1,61 @@
+{
+  "organization": "Grace Health System",
+  "document_type": "billing_faq",
+  "version": "2026-Q1",
+  "contact": {
+    "billing_phone": "555-400-9000",
+    "billing_hours": "Mon–Fri 8 AM – 6 PM",
+    "online_bill_pay": "https://mygrace.gracehealth.org/billing",
+    "financial_counseling": "555-400-9010"
+  },
+  "faqs": [
+    {
+      "question": "Why did I receive a bill if I have insurance?",
+      "answer": "After your visit, Grace Health bills your insurance company first. Any remaining balance — including your co-pay, co-insurance, or deductible — is then billed to you. The amount depends on your specific plan benefits. If you believe there is an error, please call our Billing Team at 555-400-9000."
+    },
+    {
+      "question": "Why did I receive two separate bills for the same visit?",
+      "answer": "It's common to receive separate bills for professional services (from the physician or provider) and facility services (from the clinic or hospital). Both are legitimate charges for the same visit. If you have questions about which charges are which, please call 555-400-9000."
+    },
+    {
+      "question": "What insurance plans does Grace Health accept?",
+      "answer": "Grace Health accepts most major insurance plans including Medicare, Medicaid (Illinois Medicaid), BlueCross BlueShield, Aetna, Cigna, United Healthcare, Humana, and Molina. To confirm your specific plan is accepted, call 555-400-9000 or visit our website. Always verify your in-network status before scheduling a specialist."
+    },
+    {
+      "question": "I cannot afford my bill. What options do I have?",
+      "answer": "Grace Health is committed to ensuring care is accessible regardless of financial situation. Options include: (1) Charity Care / Financial Assistance — income-based forgiveness of up to 100% of the bill. Apply at any Grace Health location or call 555-400-9010. (2) Payment Plans — interest-free plans starting at $25/month. (3) Prompt Pay Discount — 10% discount if paid in full within 30 days of billing. Please do not ignore your bill — call us to discuss options before your account goes to collections."
+    },
+    {
+      "question": "How do I pay my bill?",
+      "answer": "You can pay: (1) Online at mygrace.gracehealth.org/billing (2) By phone at 555-400-9000 (3) By mail — send check payable to 'Grace Health System' to PO Box 5500, Springfield IL 62701 (4) In person at any Grace Health registration desk. We accept credit/debit cards, HSA/FSA cards, checks, and cash."
+    },
+    {
+      "question": "What is a co-pay vs. co-insurance vs. deductible?",
+      "answer": "Co-pay: A fixed dollar amount you pay per visit (e.g., $30 for a primary care visit). Co-insurance: A percentage of the cost you pay after your deductible is met (e.g., 20% of the visit cost). Deductible: The amount you must pay out-of-pocket each year before your insurance starts covering services. For example, if your deductible is $1,500, you pay all costs until you've spent $1,500, then your insurance kicks in."
+    },
+    {
+      "question": "What is the co-pay for a specialist visit?",
+      "answer": "Co-pays for specialist visits at Grace Health depend on your insurance plan. Typical amounts are: Commercial insurance (BlueCross, Aetna, Cigna, United, Humana) — $60 per specialist visit. Medicare — $0 to $50 depending on your supplement plan; most Medicare patients pay $20–$40 for a specialist. Medicaid (Illinois) — $3 to $4 per visit. Uninsured patients are charged a discounted self-pay rate — call 555-400-9010 to discuss. Always verify your specific co-pay with your insurance card or call your insurer before your visit. For billing questions call 555-400-9000."
+    },
+    {
+      "question": "What are the co-pays for different types of visits at Grace Health?",
+      "answer": "Typical co-pays at Grace Health by visit type (commercial insurance): Primary care / family medicine visit — $30. Specialist visit (cardiology, neurology, OB/GYN, orthopedics, etc.) — $60. Urgent care visit — $50. Preventive / wellness visit — $0 (covered 100% by most plans). Lab work — $20–$40. Imaging (X-ray, MRI) — $75–$150. For Medicare patients, co-pays are generally lower. For exact amounts, check your insurance card or call 555-400-9000. Co-pays are collected at the time of your visit."
+    },
+    {
+      "question": "Does Medicare cover specialist visits at Grace Health?",
+      "answer": "Yes, Grace Health accepts Medicare for specialist visits. Under Medicare Part B, you generally pay 20% of the Medicare-approved amount after your Part B deductible ($257 in 2026). If you have a Medicare Supplement (Medigap) plan, it may cover some or all of that 20%. If you have Medicare Advantage, your plan sets the co-pay — typically $20–$50 per specialist visit. For specific Medicare billing questions, call our Billing Team at 555-400-9000."
+    },
+    {
+      "question": "I received a collection notice. What do I do?",
+      "answer": "If your account has been sent to collections, please call our Financial Counseling line at 555-400-9010 immediately. In many cases we can recall the account from collections and set up a payment arrangement. Do not ignore a collection notice — it can affect your credit score."
+    },
+    {
+      "question": "How do I request an itemized bill?",
+      "answer": "You have the right to a complete itemized statement. Call 555-400-9000 or submit a request through MyGrace patient portal. We will provide a line-by-line breakdown of all charges within 7 business days."
+    },
+    {
+      "question": "What is a Surprise Bill and am I protected?",
+      "answer": "The No Surprises Act (effective 2022) protects you from unexpected bills for emergency services or when you unknowingly receive care from out-of-network providers at in-network facilities. Grace Health complies with all federal price transparency and no-surprise billing rules. If you believe you received a surprise bill, call 555-400-9000 to dispute it."
+    }
+  ]
+}

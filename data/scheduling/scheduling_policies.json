@@ -1,0 +1,147 @@
+{
+  "organization": "Grace Health System",
+  "document_type": "scheduling_policies",
+  "version": "3.0",
+  "effective_date": "2026-01-01",
+  "general_policies": {
+    "same_day_cutoff": "10:00 AM local time",
+    "cancellation_window_hours": 24,
+    "late_arrival_grace_minutes": 10,
+    "no_show_policy": "Three no-shows in 12 months may result in discharge to self-scheduling portal only.",
+    "new_patient_lead_time_days": 7,
+    "interpreter_services": "Available in 200+ languages — request at least 24 hours in advance by calling 555-400-0010"
+  },
+  "appointment_types": [
+    {
+      "type": "Annual Wellness Visit",
+      "duration_minutes": 45,
+      "requires_referral": false,
+      "insurance_note": "Covered 100% under most plans as preventive care. Confirm with your insurer.",
+      "telehealth_eligible": false,
+      "scheduling_note": "Must not be combined with sick visit per Medicare rules."
+    },
+    {
+      "type": "Sick Visit — Acute",
+      "duration_minutes": 20,
+      "requires_referral": false,
+      "insurance_note": "Subject to co-pay and deductible.",
+      "telehealth_eligible": true,
+      "scheduling_note": "Same-day availability — call before 10 AM for best access."
+    },
+    {
+      "type": "Telehealth Visit",
+      "duration_minutes": 20,
+      "requires_referral": false,
+      "insurance_note": "Covered by most major insurers post-2023 parity laws. Patient must be in the state of service at time of visit.",
+      "telehealth_eligible": true,
+      "scheduling_note": "Link sent via MyGrace patient portal 30 minutes before visit. Must have camera-enabled device."
+    },
+    {
+      "type": "Follow-Up Visit",
+      "duration_minutes": 20,
+      "requires_referral": false,
+      "insurance_note": "Standard co-pay applies.",
+      "telehealth_eligible": true,
+      "scheduling_note": "Should be scheduled within 7–14 days of an ER visit or hospital discharge."
+    },
+    {
+      "type": "New Patient Comprehensive",
+      "duration_minutes": 60,
+      "requires_referral": false,
+      "insurance_note": "Standard evaluation & management billing. Bring insurance card, photo ID, and medication list.",
+      "telehealth_eligible": false,
+      "scheduling_note": "Bring completed new patient forms from MyGrace portal. Arrive 15 minutes early."
+    },
+    {
+      "type": "Specialist Consult",
+      "duration_minutes": 30,
+      "requires_referral": true,
+      "insurance_note": "Many plans require a PCP referral and prior authorization. Always verify before scheduling.",
+      "telehealth_eligible": true,
+      "scheduling_note": "Referral must be active in system before appointment is confirmed."
+    },
+    {
+      "type": "Lab / Bloodwork",
+      "duration_minutes": 15,
+      "requires_referral": false,
+      "insurance_note": "Lab order required from provider. Walk-in accepted Mon–Fri 7 AM – 4 PM.",
+      "telehealth_eligible": false,
+      "scheduling_note": "Fasting required for glucose and lipid panels — no food or caloric beverages 8–12 hours prior."
+    },
+    {
+      "type": "Imaging — X-Ray",
+      "duration_minutes": 20,
+      "requires_referral": false,
+      "insurance_note": "Order required. Covered under most plans.",
+      "telehealth_eligible": false,
+      "scheduling_note": "Walk-in accepted at Radiology Center. Results in MyGrace portal within 24 hours."
+    },
+    {
+      "type": "Imaging — MRI / CT",
+      "duration_minutes": 60,
+      "requires_referral": true,
+      "insurance_note": "Prior authorization almost always required. Grace Health team will obtain auth before scheduling.",
+      "telehealth_eligible": false,
+      "scheduling_note": "Notify scheduler of metal implants or claustrophobia for MRI. Contrast requires creatinine lab within 30 days."
+    },
+    {
+      "type": "Behavioral Health Intake",
+      "duration_minutes": 60,
+      "requires_referral": false,
+      "insurance_note": "Mental health parity laws apply. Co-pay same as medical visit under most plans.",
+      "telehealth_eligible": true,
+      "scheduling_note": "Intake coordinator will call within 48 hours of referral submission. Crisis patients: call 988 or go to ED."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Grace Health Main Campus",
+      "address": "1200 Grace Boulevard, Springfield, IL 62701",
+      "phone": "555-400-1000",
+      "hours": "Mon–Fri 7 AM – 7 PM, Sat 8 AM – 2 PM",
+      "services": ["Primary Care", "Specialty Clinics", "Lab", "Imaging", "Pharmacy"]
+    },
+    {
+      "name": "Grace Health North Clinic",
+      "address": "450 Northpark Drive, Springfield, IL 62702",
+      "phone": "555-400-1100",
+      "hours": "Mon–Fri 8 AM – 5 PM",
+      "services": ["Primary Care", "Lab"]
+    },
+    {
+      "name": "Grace Health South Clinic",
+      "address": "88 Southfield Ave, Springfield, IL 62703",
+      "phone": "555-400-1200",
+      "hours": "Mon–Fri 8 AM – 5 PM",
+      "services": ["Primary Care", "Pediatrics", "Lab"]
+    },
+    {
+      "name": "Grace Health Urgent Care — Main",
+      "address": "1250 Grace Boulevard, Springfield, IL 62701",
+      "phone": "555-400-2000",
+      "hours": "Daily 8 AM – 8 PM",
+      "services": ["Urgent Care", "X-Ray", "Lab"]
+    },
+    {
+      "name": "Grace Health Women's Center",
+      "address": "310 Women's Way, Springfield, IL 62704",
+      "phone": "555-400-3000",
+      "hours": "Mon–Fri 8 AM – 6 PM",
+      "services": ["OB/GYN", "Mammography", "Ultrasound", "Lab"]
+    },
+    {
+      "name": "Grace Health Heart & Vascular Center",
+      "address": "770 Cardiac Drive, Springfield, IL 62705",
+      "phone": "555-400-4000",
+      "hours": "Mon–Thu 9 AM – 5 PM",
+      "services": ["Cardiology", "Echo", "Stress Testing", "Vascular Lab"]
+    },
+    {
+      "name": "Grace Health Behavioral Health Center",
+      "address": "222 Healing Path, Springfield, IL 62706",
+      "phone": "555-400-7000",
+      "hours": "Mon–Fri 8 AM – 8 PM",
+      "services": ["Psychiatry", "Therapy", "Substance Use Counseling", "Group Therapy"]
+    }
+  ]
+}

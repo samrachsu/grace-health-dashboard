@@ -1,0 +1,111 @@
+{
+  "organization": "Grace Health System",
+  "document_type": "provider_directory",
+  "version": "2026-Q1",
+  "providers": [
+    {
+      "provider_id": "GHS-MD-001",
+      "name": "Dr. Maria Chen",
+      "credentials": "MD, FACP",
+      "specialty": "Internal Medicine / Primary Care",
+      "locations": ["Grace Health Main Campus", "Grace Health North Clinic"],
+      "languages": ["English", "Mandarin"],
+      "accepting_new_patients": true,
+      "telehealth_available": true,
+      "scheduling_phone": "555-400-1001",
+      "typical_availability": "Mon–Fri, 8 AM – 5 PM",
+      "notes": "Specializes in chronic disease management, diabetes, hypertension. Preferred provider for complex multi-condition patients."
+    },
+    {
+      "provider_id": "GHS-MD-002",
+      "name": "Dr. James Okafor",
+      "credentials": "MD",
+      "specialty": "Family Medicine",
+      "locations": ["Grace Health South Clinic", "Grace Health Eastside"],
+      "languages": ["English", "Yoruba"],
+      "accepting_new_patients": true,
+      "telehealth_available": true,
+      "scheduling_phone": "555-400-1002",
+      "typical_availability": "Mon–Sat, 7 AM – 4 PM",
+      "notes": "Accepts Medicare and Medicaid. Strong focus on preventive care and pediatric/adult medicine."
+    },
+    {
+      "provider_id": "GHS-NP-001",
+      "name": "Sarah Delgado",
+      "credentials": "NP-C",
+      "specialty": "Primary Care / Urgent Care",
+      "locations": ["Grace Health Urgent Care — Main", "Grace Health Urgent Care — North"],
+      "languages": ["English", "Spanish"],
+      "accepting_new_patients": true,
+      "telehealth_available": true,
+      "scheduling_phone": "555-400-2001",
+      "typical_availability": "Daily, 8 AM – 8 PM",
+      "notes": "Walk-ins welcome at urgent care locations. Can prescribe non-controlled medications."
+    },
+    {
+      "provider_id": "GHS-MD-003",
+      "name": "Dr. Priya Nair",
+      "credentials": "MD, FACOG",
+      "specialty": "Obstetrics & Gynecology",
+      "locations": ["Grace Health Women's Center"],
+      "languages": ["English", "Hindi", "Malayalam"],
+      "accepting_new_patients": true,
+      "telehealth_available": false,
+      "scheduling_phone": "555-400-3001",
+      "typical_availability": "Mon, Wed, Fri – 8 AM – 4 PM; Tue, Thu – 10 AM – 6 PM",
+      "notes": "High-risk obstetrics. Pre-authorization required for certain procedures."
+    },
+    {
+      "provider_id": "GHS-MD-004",
+      "name": "Dr. Thomas Brooks",
+      "credentials": "MD, FACC",
+      "specialty": "Cardiology",
+      "locations": ["Grace Health Heart & Vascular Center"],
+      "languages": ["English"],
+      "accepting_new_patients": true,
+      "telehealth_available": true,
+      "scheduling_phone": "555-400-4001",
+      "typical_availability": "Mon–Thu, 9 AM – 5 PM",
+      "notes": "Requires referral from PCP for new patients. Specializes in heart failure, atrial fibrillation, and coronary artery disease."
+    },
+    {
+      "provider_id": "GHS-PA-001",
+      "name": "Alex Rivera",
+      "credentials": "PA-C",
+      "specialty": "Orthopedics",
+      "locations": ["Grace Health Orthopedic & Sports Medicine"],
+      "languages": ["English", "Spanish"],
+      "accepting_new_patients": true,
+      "telehealth_available": false,
+      "scheduling_phone": "555-400-5001",
+      "typical_availability": "Mon–Fri, 8 AM – 5 PM",
+      "notes": "Handles fractures, sprains, joint injections. X-ray on site. No referral needed."
+    },
+    {
+      "provider_id": "GHS-MD-005",
+      "name": "Dr. Linda Park",
+      "credentials": "MD",
+      "specialty": "Pediatrics",
+      "locations": ["Grace Health Pediatrics — Main", "Grace Health Eastside"],
+      "languages": ["English", "Korean"],
+      "accepting_new_patients": true,
+      "telehealth_available": true,
+      "scheduling_phone": "555-400-6001",
+      "typical_availability": "Mon–Fri, 8 AM – 5 PM; Sat 9 AM – 1 PM",
+      "notes": "Ages newborn through 18. Sick visits available same-day when called before 10 AM."
+    },
+    {
+      "provider_id": "GHS-MD-006",
+      "name": "Dr. Robert Simmons",
+      "credentials": "MD, ABPN",
+      "specialty": "Psychiatry",
+      "locations": ["Grace Health Behavioral Health Center"],
+      "languages": ["English"],
+      "accepting_new_patients": false,
+      "telehealth_available": true,
+      "scheduling_phone": "555-400-7001",
+      "typical_availability": "Tue, Wed, Thu – 10 AM – 6 PM",
+      "notes": "Not accepting new patients. Existing patients only for medication management. Crisis patients call 988 or go to ED."
+    }
+  ]
+}

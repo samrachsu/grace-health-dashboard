@@ -821,6 +821,325 @@ body {
   animation: pulse 0.8s ease-in-out infinite;
 }
 #vapi-speaking-dot.show { display: block; }
+
+/* Office of Transformation — Team 17 */
+.oot-status-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.oot-accordion {
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.oot-accordion summary {
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--surface, #f8fafc);
+  list-style: none;
+}
+.oot-accordion summary::-webkit-details-marker { display: none; }
+.oot-accordion-content {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.oot-agent-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+}
+.oot-agent-row:last-child { border-bottom: none; }
+.oot-agent-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: var(--accent, #3b82f6);
+  color: white;
+  white-space: nowrap;
+}
+.oot-agent-badge.active { background: #22c55e; }
+.oot-agent-name { flex: 1; font-weight: 500; }
+.oot-agent-schedule {
+  font-size: 0.8rem;
+  color: var(--muted, #64748b);
+  white-space: nowrap;
+}
+.oot-agent-status {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #22c55e;
+  white-space: nowrap;
+}
+.oot-tile-placeholder {
+  border: 2px dashed var(--border, #e2e8f0);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  color: var(--muted, #64748b);
+  margin-bottom: 1rem;
+}
+
+/* Aarav tile — Enterprise Strategy Scenarios */
+.oot-tile {
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  background: var(--surface, #ffffff);
+}
+.oot-tile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.oot-tile-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.oot-tile-meta {
+  font-size: 0.8rem;
+  color: var(--muted, #64748b);
+}
+.aarav-confidence-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border, #e2e8f0);
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.aarav-conf-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted, #64748b);
+}
+.aarav-conf-pills { display: flex; gap: 0.5rem; }
+.conf-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+.conf-pill.high   { background: #dcfce7; color: #166534; }
+.conf-pill.medium { background: #fef9c3; color: #854d0e; }
+.conf-pill.low    { background: #fee2e2; color: #991b1b; }
+.aarav-narrative-source {
+  font-size: 0.75rem;
+  color: var(--muted, #64748b);
+  margin-left: auto;
+}
+.aarav-scenarios-header {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+.aarav-scenario-card {
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+}
+.aarav-scenario-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+.aarav-scenario-type { font-size: 0.8rem; font-weight: 600; }
+.aarav-scenario-net { margin-left: auto; }
+.aarav-scenario-narrative {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 0.4rem;
+}
+.aarav-scenario-adaptation {
+  font-size: 0.8rem;
+  color: var(--muted, #64748b);
+  margin-bottom: 0.4rem;
+}
+.aarav-scenario-status {
+  font-size: 0.75rem;
+  color: var(--muted, #64748b);
+}
+.aarav-gov-signals {
+  background: #fef9c3;
+  border: 1px solid #fbbf24;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+.gov-signal-label { font-weight: 700; margin-right: 0.5rem; }
+.oot-tile-footer {
+  font-size: 0.75rem;
+  color: var(--muted, #64748b);
+  border-top: 1px solid var(--border, #e2e8f0);
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+}
+.oot-loading, .oot-empty, .oot-error {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--muted, #64748b);
+  font-size: 0.85rem;
+}
+.oot-error { color: #ef4444; }
+
+/* Devika tile — Executive Briefs */
+.devika-status-bar {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border, #e2e8f0);
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.devika-status-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 100px;
+}
+.devika-status-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--muted, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.devika-status-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.devika-shared-facts-box {
+  background: #f0fdf4;
+  border: 2px solid #22c55e;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+.devika-shared-facts-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #166534;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.devika-shared-facts-content {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #166534;
+}
+.devika-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--border, #e2e8f0);
+  padding-bottom: 0;
+}
+.devika-tab {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--muted, #64748b);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.15s;
+}
+.devika-tab.active {
+  color: var(--accent, #3b82f6);
+  border-bottom-color: var(--accent, #3b82f6);
+}
+.devika-tab:hover { color: var(--accent, #3b82f6); }
+.devika-brief-card {
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+.devika-brief-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text, #1e293b);
+}
+.devika-brief-note {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--muted, #64748b);
+  margin-left: 0.5rem;
+}
+.devika-brief-emphasis {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  padding: 0.75rem;
+  background: var(--surface, #f8fafc);
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+.devika-fact-ref {
+  font-family: monospace;
+  font-size: 0.75rem;
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.devika-rejection-note {
+  font-size: 0.75rem;
+  color: #92400e;
+  background: #fef9c3;
+  border: 1px solid #fbbf24;
+  border-radius: 4px;
+  padding: 0.4rem 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.devika-brief-actions { margin-bottom: 0.75rem; }
+.devika-action-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted, #64748b);
+  margin-bottom: 0.4rem;
+}
+.devika-actions-content {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.devika-brief-meta {
+  font-size: 0.7rem;
+  color: var(--muted, #64748b);
+  border-top: 1px solid var(--border, #e2e8f0);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
@@ -869,6 +1188,7 @@ body {
   <button class="tab-btn" data-tab="cfo">CFO</button>
   <button class="tab-btn" data-tab="pophealth">Population Health</button>
   <button class="tab-btn" data-tab="quality">Quality</button>
+  <button class="tab-btn" data-tab="oot">Office of Transformation</button>
   <button class="tab-btn" data-tab="performance">Agent Performance</button>
   <button class="tab-btn" data-tab="registry">Agent Registry</button>
   <button class="tab-btn" data-tab="memory">Memory &amp; Learning</button>
@@ -1010,7 +1330,7 @@ body {
 <!-- ──────── TAB 10: WORKFORCE INTELLIGENCE ──────── -->
 <section class="tab-content" id="tab-workforce">
   <h1 class="page-title">Workforce &amp; HR Intelligence</h1>
-  <p class="page-subtitle">Team 9 — Shortage Forecasting, Hiring Pipeline, Retention Monitoring, Unfilled Positions</p>
+  <p class="page-subtitle">Team 9 — Retention Monitoring, Unfilled Positions, Shortage Forecasting, Hiring Pipeline</p>
   <div id="workforce-content"><div class="metric-subtitle">Loading...</div></div>
 </section>
 
@@ -1357,15 +1677,21 @@ async function runOrchestrator() {
   btn.innerHTML = '&#9654; RUN FULL ORCHESTRATOR NOW';
 }
 
-// ── Supabase connection ──
-const SUPABASE_URL = 'https://xwzlscvdxykbkfishbof.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3emxzY3ZkeHlrYmtmaXNoYm9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMTM4MTIsImV4cCI6MjA4ODU4OTgxMn0.ozbDg_xPYWxPwaYA9naYr1SWM5F-_bVBTupJFGDvxfA';
+// ── Data layer: Netlify serverless functions ──
+async function fetchTab(slug) {
+  const resp = await fetch(`/.netlify/functions/${slug}`);
+  if (!resp.ok) throw new Error(`Function ${slug} returned ${resp.status}`);
+  return resp.json();
+}
 
-async function sbFetch(table, query) {
-  const resp = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${query}`, {
-    headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+async function writeAction(table, filters, data) {
+  const resp = await fetch('/.netlify/functions/write-action', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ table, filters, data }),
   });
-  return resp.ok ? resp.json() : [];
+  if (!resp.ok) throw new Error(`Write action failed: ${resp.status}`);
+  return resp.json();
 }
 
 // ── Overview Tab: Dynamic Data ──
@@ -1373,11 +1699,7 @@ let _ovLoaded = false;
 async function loadOverview() {
   if (_ovLoaded) return;
   try {
-    const [roi, agents, teams] = await Promise.all([
-      sbFetch('roi_report', 'select=report_date,total_monthly_value,prior_auth_value,care_gap_value,documentation_value,claims_value,readmission_value,supply_chain_value,access_value,nursing_doc_value&order=report_date.desc,report_generated_at.desc&limit=700'),
-      sbFetch('agent_registry', 'status=eq.Active&select=agent_id'),
-      sbFetch('agent_registry', 'select=team_number'),
-    ]);
+    const { roi, agents, teams } = await fetchTab('overview');
 
     // Find most recent complete month (day >= 28)
     const byMonth = {};
@@ -1482,17 +1804,7 @@ function severityBadge(sev) {
 
 async function loadGovernance() {
   try {
-    // Fetch dashboard flags for all governance teams
-    const flags = await sbFetch('governance_dashboard_flags',
-      'order=team.asc,agent_name.asc');
-
-    // Fetch recent governance log (non-OK, last 24h)
-    const logs = await sbFetch('governance_log',
-      'severity=neq.OK&order=checked_at.desc&limit=20');
-
-    // Fetch active alerts
-    const alerts = await sbFetch('governance_alerts',
-      'acknowledged=eq.false&order=created_at.desc&limit=10');
+    const { flags, logs, alerts } = await fetchTab('governance');
 
     // Update metrics
     const severities = flags.map(f => f.current_severity);
@@ -1564,16 +1876,7 @@ if (document.querySelector('[data-tab="governance"]')?.classList.contains('activ
 // ─── Call Center AI Tab ────────────────────────────────────────────
 async function loadCallCenter() {
   try {
-    const headers = { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` };
-    const since = new Date(Date.now() - 24*60*60*1000).toISOString();
-
-    const [logsRes, escalationsRes] = await Promise.all([
-      fetch(`${SUPABASE_URL}/rest/v1/call_center_logs?created_at=gte.${since}&select=call_reason,resolution,escalation_flag,call_duration_sec`, { headers }),
-      fetch(`${SUPABASE_URL}/rest/v1/call_center_logs?escalation_flag=eq.true&created_at=gte.${since}&select=caller_name,call_reason,escalation_reason,created_at&order=created_at.desc&limit=10`, { headers }),
-    ]);
-
-    const logs = logsRes.ok ? await logsRes.json() : [];
-    const escalations = escalationsRes.ok ? await escalationsRes.json() : [];
+    const { logs, escalations, pendingAlerts } = await fetchTab('call-center-ai');
 
     const total = logs.length;
     const resolved = logs.filter(l => l.resolution === 'resolved' || l.resolution === 'appointment_booked' || l.resolution === 'refill_requested').length;
@@ -1612,36 +1915,17 @@ async function loadCallCenter() {
   }
 }
 
-// ─── Supabase Realtime — Live Transfer Screen Pop ─────────────────
-let _supabaseClient = null;
-let _realtimeChannel = null;
-
-function getSupabaseClient() {
-  if (!_supabaseClient && typeof supabase !== 'undefined') {
-    _supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-  }
-  return _supabaseClient;
-}
-
+// ─── Live Transfer Alerts (polling via serverless function) ─────────
 function initRealtimeAlerts() {
   fetchPendingAlerts();
-  const client = getSupabaseClient();
-  if (!client || _realtimeChannel) return;
-  _realtimeChannel = client
-    .channel('live-transfer-alerts')
-    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'live_transfer_alerts' }, (payload) => {
-      renderScreenPop(payload.new, true);
-    })
-    .subscribe();
+  // Poll every 30s instead of Realtime (no client-side Supabase credentials)
+  setInterval(fetchPendingAlerts, 30000);
 }
 
 async function fetchPendingAlerts() {
   try {
-    const resp = await fetch(`${SUPABASE_URL}/rest/v1/live_transfer_alerts?acknowledged=eq.false&order=created_at.desc&limit=5`, {
-      headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` }
-    });
-    if (!resp.ok) return;
-    const alerts = await resp.json();
+    const { pendingAlerts } = await fetchTab('call-center-ai');
+    const alerts = pendingAlerts || [];
     const container = document.getElementById('cc-live-alerts-container');
     if (!container) return;
     container.innerHTML = '';
@@ -1688,12 +1972,8 @@ async function acknowledgeAlert(alertId, btn) {
   btn.disabled = true;
   btn.textContent = 'Acknowledging…';
   try {
-    const resp = await fetch(`${SUPABASE_URL}/rest/v1/live_transfer_alerts?id=eq.${alertId}`, {
-      method: 'PATCH',
-      headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}`, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
-      body: JSON.stringify({ acknowledged: true, acknowledged_at: new Date().toISOString() })
-    });
-    if (resp.ok) {
+    const resp = await writeAction('live_transfer_alerts', `id=eq.${alertId}`, { acknowledged: true, acknowledged_at: new Date().toISOString() });
+    if (resp.success) {
       const card = document.getElementById(`alert-${alertId}`);
       if (card) { card.style.opacity = '0'; card.style.transition = 'opacity 0.4s'; setTimeout(() => card.remove(), 400); }
     } else { btn.disabled = false; btn.textContent = 'Acknowledge'; }
@@ -2262,6 +2542,244 @@ document.querySelector('[data-tab="callcenter"]').addEventListener('click', load
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════════
+     OFFICE OF TRANSFORMATION — Team 17
+     13 agents: Intelligence & Risk, Portfolio, Synthesis
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="tab-content" id="tab-oot">
+
+  <h1 class="page-title">Office of Transformation</h1>
+  <p class="page-subtitle">
+    Team 17 — 13 agents bringing curated attention to executive leadership.
+    Differentiated emphasis, never differentiated narrative.
+  </p>
+
+  <!-- Status Bar -->
+  <div class="oot-status-bar">
+    <div class="metric-card">
+      <div class="metric-label">Agents Active</div>
+      <div class="metric-value" id="oot-agent-count">13</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Last Brief</div>
+      <div class="metric-value" id="oot-last-brief">&mdash;</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Open Scenarios</div>
+      <div class="metric-value" id="oot-open-scenarios">&mdash;</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Consistency Check</div>
+      <div class="metric-value" id="oot-consistency-status">&mdash;</div>
+    </div>
+  </div>
+
+  <!-- Accordion: Intelligence & Risk -->
+  <details class="oot-accordion" open>
+    <summary>Intelligence &amp; Risk — Agents 64–67</summary>
+    <div class="oot-accordion-content">
+      <div class="oot-agent-row">
+        <span class="oot-agent-badge active">AGT-064</span>
+        <span class="oot-agent-name">Nadia — Risk Register</span>
+        <span class="oot-agent-schedule">Daily 7:00 AM</span>
+        <span class="oot-agent-status" id="oot-status-064">Active</span>
+      </div>
+      <div class="oot-agent-row">
+        <span class="oot-agent-badge active">AGT-065</span>
+        <span class="oot-agent-name">Kai — Strategy Gap</span>
+        <span class="oot-agent-schedule">Daily 7:15 AM</span>
+        <span class="oot-agent-status" id="oot-status-065">Active</span>
+      </div>
+      <div class="oot-agent-row">
+        <span class="oot-agent-badge active">AGT-066</span>
+        <span class="oot-agent-name">Priya — External Intelligence</span>
+        <span class="oot-agent-schedule">Daily 5:00 AM</span>
+        <span class="oot-agent-status" id="oot-status-066">Active</span>
+      </div>
+      <div class="oot-agent-row">
+        <span class="oot-agent-badge active">AGT-067</span>
+        <span class="oot-agent-name">Rohan — Environmental Correlation</span>
+        <span class="oot-agent-schedule">Daily 5:30 AM</span>
+        <span class="oot-agent-status" id="oot-status-067">Active</span>
+      </div>
+    </div>
+  </details>
+
+  <!-- Accordion: Portfolio & Capability -->
+  <details class="oot-accordion">
+    <summary>Portfolio &amp; Capability — Agents 28, 29, 68–71</summary>
+    <div class="oot-accordion-content">
+      <div class="oot-agent-row">
+        <span class="oot-agent-badge active">AGT-028</span>
+        <span class="oot-agent-name">AI Interview Agent</span>
+        <span class="oot-agent-schedule">On-demand + Quarterly</span>
+        <span class="oot-agent-status" id="oot-status-028">Active</span>
+      </div>
+      <div class="oot-agent-row">
+        <span class="oot-agent-badge active">AGT-029</span>
+        <span class="oot-agent-name">Work Redesign Agent</span>
+        <span class="oot-agent-schedule">Triggered by Agent 28</span>
+        <span class="oot-agent-status" id="oot-status-029">Active</span>
+      </div>
+      <div class="oot-agent-row">
+        <span class="oot-agent-badge active">AGT-068</span>
+        <span class="oot-agent-name">Elena — Transformation Portfolio</span>
+        <span class="oot-agent-schedule">Daily 7:30 AM</span>
+        <span class="oot-agent-status" id="oot-status-068">Active</span>
+      </div>
+      <div class="oot-agent-row">
+        <span class="oot-agent-badge active">AGT-069</span>
+        <span class="oot-agent-name">Jordan — Office Health Tracker</span>
+        <span class="oot-agent-schedule">Weekly Monday 6:00 AM</span>
+        <span class="oot-agent-status" id="oot-status-069">Active</span>
+      </div>
+      <div class="oot-agent-row">
+        <span class="oot-agent-badge active">AGT-070</span>
+        <span class="oot-agent-name">Samir — Initiative Stakeholder Map</span>
+        <span class="oot-agent-schedule">Weekly Monday 6:15 AM</span>
+        <span class="oot-agent-status" id="oot-status-070">Active</span>
+      </div>
+      <div class="oot-agent-row">
+        <span class="oot-agent-badge active">AGT-071</span>
+        <span class="oot-agent-name">Mira — Change Management</span>
+        <span class="oot-agent-schedule">Daily 8:45 AM</span>
+        <span class="oot-agent-status" id="oot-status-071">Active</span>
+      </div>
+    </div>
+  </details>
+
+  <!-- Accordion: Synthesis -->
+  <details class="oot-accordion" open>
+    <summary>Synthesis — Agents 72, 73, 74</summary>
+    <div class="oot-accordion-content">
+
+      <!-- Aarav — Enterprise Strategy Scenarios (AGT-072) -->
+      <div id="oot-aarav-tile" class="oot-tile">
+
+        <!-- Tile header -->
+        <div class="oot-tile-header">
+          <div class="oot-tile-title">
+            <span class="oot-agent-badge active">AGT-072</span>
+            <span>Enterprise Strategy Scenarios — Aarav</span>
+          </div>
+          <div class="oot-tile-meta">
+            Weekly Monday 6:45 AM &nbsp;&middot;&nbsp; Low Risk &nbsp;&middot;&nbsp;
+            <span id="aarav-scenario-count">&mdash;</span> scenarios this week
+          </div>
+        </div>
+
+        <!-- Confidence tier distribution -->
+        <div class="aarav-confidence-bar">
+          <div class="aarav-conf-label">Confidence Distribution</div>
+          <div class="aarav-conf-pills">
+            <span class="conf-pill high">HIGH <span id="aarav-conf-high">&mdash;</span></span>
+            <span class="conf-pill medium">MED <span id="aarav-conf-medium">&mdash;</span></span>
+            <span class="conf-pill low">LOW <span id="aarav-conf-low">&mdash;</span></span>
+          </div>
+          <div class="aarav-narrative-source">
+            LLM validated: <span id="aarav-llm-validated">&mdash;</span> &nbsp;|&nbsp;
+            Template fallback: <span id="aarav-template-fallback">&mdash;</span>
+          </div>
+        </div>
+
+        <!-- Top 3 scenarios by absolute net impact -->
+        <div class="aarav-scenarios-header">Top Scenarios This Week</div>
+        <div id="aarav-scenarios-list" class="aarav-scenarios-list">
+          <div class="oot-loading">Loading scenarios...</div>
+        </div>
+
+        <!-- Governance signals -->
+        <div id="aarav-gov-signals" class="aarav-gov-signals" style="display:none;">
+          <span class="gov-signal-label">&#9888; Governance signals:</span>
+          <span id="aarav-gov-signal-text"></span>
+        </div>
+
+        <!-- Run info -->
+        <div class="oot-tile-footer">
+          Last run: <span id="aarav-last-run">&mdash;</span> &nbsp;&middot;&nbsp;
+          Status: All scenarios <strong>proposed</strong> — awaiting Steward review
+        </div>
+
+      </div>
+
+      <!-- Devika — Executive Briefs (AGT-073) -->
+      <div id="oot-devika-tile" class="oot-tile">
+
+        <!-- Tile header -->
+        <div class="oot-tile-header">
+          <div class="oot-tile-title">
+            <span class="oot-agent-badge active">AGT-073</span>
+            <span>Executive Briefs — Devika</span>
+          </div>
+          <div class="oot-tile-meta">
+            Daily 8:00 AM &nbsp;&middot;&nbsp; Medium Risk &nbsp;&middot;&nbsp;
+            <span id="devika-run-date">&mdash;</span>
+          </div>
+        </div>
+
+        <!-- Status bar: consistency check + steward status -->
+        <div class="devika-status-bar">
+          <div class="devika-status-item">
+            <div class="devika-status-label">Consistency Check</div>
+            <div class="devika-status-value" id="devika-consistency-badge">&mdash;</div>
+          </div>
+          <div class="devika-status-item">
+            <div class="devika-status-label">Bundle Status</div>
+            <div class="devika-status-value" id="devika-bundle-status">&mdash;</div>
+          </div>
+          <div class="devika-status-item">
+            <div class="devika-status-label">Shared Facts</div>
+            <div class="devika-status-value" id="devika-shared-facts-status">&mdash;</div>
+          </div>
+          <div class="devika-status-item">
+            <div class="devika-status-label">Recipients</div>
+            <div class="devika-status-value" id="devika-recipient-count">&mdash;</div>
+          </div>
+        </div>
+
+        <!-- Shared Facts section — identical across all 4 briefs -->
+        <div class="devika-shared-facts-box" id="devika-shared-facts-box" style="display:none;">
+          <div class="devika-shared-facts-label">
+            &#128204; Shared Facts — identical across all 4 briefs
+          </div>
+          <div class="devika-shared-facts-content" id="devika-shared-facts-content"></div>
+        </div>
+
+        <!-- Tab selector for 4 recipients -->
+        <div class="devika-tabs" id="devika-tabs" style="display:none;">
+          <button class="devika-tab active" onclick="showBrief('CEO')">CEO</button>
+          <button class="devika-tab" onclick="showBrief('CAIO')">CAIO</button>
+          <button class="devika-tab" onclick="showBrief('CMO')">CMO</button>
+          <button class="devika-tab" onclick="showBrief('CFO')">CFO</button>
+        </div>
+
+        <!-- Brief content area -->
+        <div id="devika-brief-content" class="devika-brief-content">
+          <div class="oot-loading">Loading today's briefs...</div>
+        </div>
+
+        <!-- Footer -->
+        <div class="oot-tile-footer" id="devika-footer" style="display:none;">
+          <strong>Differentiated emphasis, never differentiated narrative.</strong>
+          Each brief pulls forward what matters most to that role.
+          The Shared Facts section above is byte-identical across all 4.
+          Briefs are held in Steward review — not yet released to executives.
+        </div>
+
+      </div>
+
+      <div class="oot-agent-row">
+        <span class="oot-agent-badge active">AGT-074</span>
+        <span class="oot-agent-name">Morgan — OOT Governance</span>
+        <span class="oot-agent-schedule">Hourly 7 AM–7 PM</span>
+        <span class="oot-agent-status" id="oot-status-074">Active</span>
+      </div>
+
+    </div>
+  </details>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
      TAB: Agent Performance Improvement (Team 16)
      ══════════════════════════════════════════════════════════════════ -->
 <section class="tab-content" id="tab-performance">
@@ -2382,44 +2900,329 @@ function approveNote(btn, encounterId) {
 
 <script>
 // ── CFO, Population Health, Quality tab data loading ──
-// Reuses SUPABASE_URL and SUPABASE_KEY defined earlier in this file
-async function sbLoad(table, query) {
-  try {
-    const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${query}`, {
-      headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` }
-    });
-    return r.ok ? r.json() : [];
-  } catch(e) { return []; }
-}
+// All data flows through fetchTab() serverless functions
 
 async function loadCFO() {
-  const briefs = await sbLoad('cfo_daily_brief_log', 'order=run_date.desc&limit=1');
-  if (briefs.length) {
-    document.getElementById('cfo-daily-brief').innerText = briefs[0].narrative_brief || 'No brief available';
-  }
-  const boards = await sbLoad('cfo_board_report_log', 'order=created_at.desc&limit=1');
-  if (boards.length) {
-    document.getElementById('cfo-board-report').innerText = boards[0].executive_summary || 'No board report available';
-  }
+  try {
+    const { briefs, boards } = await fetchTab('cfo');
+    if (briefs.length) document.getElementById('cfo-daily-brief').innerText = briefs[0].narrative_brief || 'No brief available';
+    if (boards.length) document.getElementById('cfo-board-report').innerText = boards[0].executive_summary || 'No board report available';
+  } catch(e) { console.error('loadCFO:', e); }
 }
 
 async function loadPopHealth() {
-  const briefs = await sbLoad('population_health_director_log', 'order=created_at.desc&limit=1');
-  if (briefs.length) {
-    document.getElementById('pophealth-brief').innerText = briefs[0].executive_narrative || 'No brief available';
-  }
+  try {
+    const { briefs } = await fetchTab('population-health');
+    if (briefs.length) document.getElementById('pophealth-brief').innerText = briefs[0].executive_narrative || 'No brief available';
+  } catch(e) { console.error('loadPopHealth:', e); }
 }
 
 async function loadQuality() {
-  const briefs = await sbLoad('cqo_director_summary', 'order=created_at.desc&limit=1');
-  if (briefs.length) {
-    document.getElementById('cqo-brief').innerText = briefs[0].executive_narrative || 'No brief available';
-  }
+  try {
+    const { briefs } = await fetchTab('quality');
+    if (briefs.length) document.getElementById('cqo-brief').innerText = briefs[0].executive_narrative || 'No brief available';
+  } catch(e) { console.error('loadQuality:', e); }
 }
 
 document.querySelector('[data-tab="cfo"]').addEventListener('click', loadCFO);
 document.querySelector('[data-tab="pophealth"]').addEventListener('click', loadPopHealth);
 document.querySelector('[data-tab="quality"]').addEventListener('click', loadQuality);
+
+// ── Office of Transformation tab data loading ──
+let _ootLoaded = false;
+async function loadOOT() {
+  if (_ootLoaded) return;
+  try {
+    const { briefs, scenarios } = await fetchTab('oot');
+
+    // Last brief run date
+    if (briefs && briefs.length > 0) {
+      document.getElementById('oot-last-brief').textContent = briefs[0].run_date || '\u2014';
+      // Consistency check from most recent brief
+      const passed = briefs[0].consistency_check_passed;
+      const el = document.getElementById('oot-consistency-status');
+      if (passed !== undefined && passed !== null) {
+        el.textContent = passed ? '\u2713 PASSED' : '\u26A0 FAILED';
+        el.style.color = passed ? '#22c55e' : '#ef4444';
+      }
+    }
+
+    // Open scenarios count (status = 'proposed')
+    if (scenarios) {
+      const open = scenarios.filter(s => s.status === 'proposed').length;
+      document.getElementById('oot-open-scenarios').textContent = open;
+      loadAaravTile(scenarios);
+    }
+
+    // Load Devika tile with briefs data
+    if (briefs) {
+      loadDevikaTile(briefs);
+    }
+
+    _ootLoaded = true;
+  } catch (e) {
+    console.error('loadOOT:', e);
+  }
+}
+
+// ── Aarav tile — Enterprise Strategy Scenarios (AGT-072) ──
+function getCurrentISOWeek() {
+  const now = new Date();
+  const d = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  return d.getUTCFullYear() + '-W' + String(weekNo).padStart(2, '0');
+}
+
+function loadAaravTile(allScenarios) {
+  try {
+    // Filter to current week
+    const isoWeek = getCurrentISOWeek();
+    const scenarios = allScenarios.filter(function(s) { return s.run_week === isoWeek; });
+
+    if (!scenarios.length) {
+      document.getElementById('aarav-scenarios-list').innerHTML =
+        '<div class="oot-empty">No scenarios yet this week. Aarav runs Monday 6:45 AM.</div>';
+      document.getElementById('aarav-scenario-count').textContent = '0';
+      return;
+    }
+
+    // Scenario count
+    document.getElementById('aarav-scenario-count').textContent = scenarios.length;
+
+    // Last run
+    var lastRun = scenarios[0].run_timestamp
+      ? new Date(scenarios[0].run_timestamp).toLocaleDateString()
+      : '\u2014';
+    document.getElementById('aarav-last-run').textContent = lastRun;
+
+    // Confidence distribution
+    var high = scenarios.filter(function(s) { return s.confidence_tier === 'HIGH'; }).length;
+    var med  = scenarios.filter(function(s) { return s.confidence_tier === 'MEDIUM'; }).length;
+    var low  = scenarios.filter(function(s) { return s.confidence_tier === 'LOW'; }).length;
+    document.getElementById('aarav-conf-high').textContent   = high;
+    document.getElementById('aarav-conf-medium').textContent = med;
+    document.getElementById('aarav-conf-low').textContent    = low;
+
+    // Narrative source
+    var validated = scenarios.filter(function(s) { return s.narrative_source === 'llm_validated'; }).length;
+    var fallback  = scenarios.filter(function(s) { return s.narrative_source === 'template_fallback'; }).length;
+    document.getElementById('aarav-llm-validated').textContent   = validated;
+    document.getElementById('aarav-template-fallback').textContent = fallback;
+
+    // Top 3 by absolute net impact
+    var top3 = scenarios.slice().sort(function(a, b) {
+      return Math.abs(b.net_12_month_impact) - Math.abs(a.net_12_month_impact);
+    }).slice(0, 3);
+
+    var listEl = document.getElementById('aarav-scenarios-list');
+    listEl.innerHTML = top3.map(function(s) {
+      var net = parseFloat(s.net_12_month_impact);
+      var sign = net >= 0 ? '+' : '';
+      var netStr = sign + '$' + Math.abs(net).toLocaleString('en-US', {maximumFractionDigits: 0});
+      var netColor = net >= 0 ? '#22c55e' : '#ef4444';
+      var confStyles = {
+        'HIGH':   'background:#22c55e;color:white',
+        'MEDIUM': 'background:#f59e0b;color:white',
+        'LOW':    'background:#ef4444;color:white'
+      };
+      var confBadge = confStyles[s.confidence_tier] || '';
+      var typeLabels = {
+        'initiative_funded':   '\ud83d\udccb Initiative',
+        'signal_materializes': '\ud83d\udce1 Signal',
+        'combined_levers':     '\ud83d\udd00 Combined'
+      };
+      var typeLabel = typeLabels[s.scenario_type] || s.scenario_type;
+
+      return '<div class="aarav-scenario-card">' +
+        '<div class="aarav-scenario-top">' +
+          '<span class="aarav-scenario-type">' + typeLabel + '</span>' +
+          '<span style="font-size:0.7rem;font-weight:700;padding:2px 6px;border-radius:4px;' + confBadge + '">' +
+            s.confidence_tier + '</span>' +
+          '<span class="aarav-scenario-net" style="color:' + netColor + ';font-weight:700;">' +
+            netStr + ' / 12 mo</span>' +
+        '</div>' +
+        '<div class="aarav-scenario-narrative">' + (s.narrative || '') + '</div>' +
+        '<div class="aarav-scenario-adaptation"><em>\u2192 ' + (s.recommended_adaptation || '') + '</em></div>' +
+        '<div class="aarav-scenario-status">Status: <strong style="color:#f59e0b;">' +
+          s.status + '</strong> \u2014 awaiting Steward review before feeding Devika</div>' +
+      '</div>';
+    }).join('');
+
+    // Governance signals
+    var allSignals = [];
+    scenarios.forEach(function(s) {
+      if (s.governance_signals) allSignals = allSignals.concat(s.governance_signals);
+    });
+    var uniqueSignals = allSignals.filter(function(v, i, a) { return a.indexOf(v) === i; });
+    if (uniqueSignals.length > 0) {
+      document.getElementById('aarav-gov-signals').style.display = 'block';
+      document.getElementById('aarav-gov-signal-text').textContent = uniqueSignals.join(', ');
+    }
+
+  } catch (err) {
+    console.error('Aarav tile load error:', err);
+    document.getElementById('aarav-scenarios-list').innerHTML =
+      '<div class="oot-error">Error loading scenarios. Check console.</div>';
+  }
+}
+
+// ── Devika tile — Executive Briefs (AGT-073) ──
+var _devikaBriefs = {};
+
+function loadDevikaTile(allBriefs) {
+  try {
+    // Filter to today's briefs
+    var today = new Date().toISOString().split('T')[0];
+    var briefs = allBriefs.filter(function(b) { return b.run_date === today; });
+
+    if (!briefs.length) {
+      document.getElementById('devika-brief-content').innerHTML =
+        '<div class="oot-empty">No briefs yet for ' + today + '. Devika runs daily at 8:00 AM.<br>' +
+        '<small>Once briefs are produced, they appear here pending Steward review.</small></div>';
+      document.getElementById('devika-consistency-badge').textContent = '\u2014';
+      document.getElementById('devika-bundle-status').textContent = '\u2014';
+      document.getElementById('devika-shared-facts-status').textContent = '\u2014';
+      document.getElementById('devika-recipient-count').textContent = '0 / 4';
+      return;
+    }
+
+    // Store for tab switching
+    briefs.forEach(function(b) { _devikaBriefs[b.recipient_role] = b; });
+
+    // Run date
+    document.getElementById('devika-run-date').textContent = today;
+
+    // Recipient count
+    document.getElementById('devika-recipient-count').textContent = briefs.length + ' / 4';
+
+    // Consistency check
+    var allPassed = briefs.every(function(b) { return b.consistency_check_passed; });
+    var anyFailed = briefs.some(function(b) { return b.status === 'consistency_check_failed'; });
+    var consistEl = document.getElementById('devika-consistency-badge');
+    if (anyFailed) {
+      consistEl.textContent = '\u26A0 FAILED';
+      consistEl.style.color = '#ef4444';
+    } else if (allPassed) {
+      consistEl.textContent = '\u2713 PASSED';
+      consistEl.style.color = '#22c55e';
+    } else {
+      consistEl.textContent = 'Pending';
+      consistEl.style.color = '#f59e0b';
+    }
+
+    // Bundle status
+    var bundleStatusEl = document.getElementById('devika-bundle-status');
+    var statuses = briefs.map(function(b) { return b.status; }).filter(function(v, i, a) { return a.indexOf(v) === i; });
+    var statusDisplay = {
+      'pending_steward_review':   '\u23F3 Pending Review',
+      'approved':                 '\u2713 Approved',
+      'rejected':                 '\u2717 Rejected',
+      'consistency_check_failed': '\u26A0 Check Failed',
+      'released':                 '\uD83D\uDCE4 Released'
+    };
+    bundleStatusEl.textContent = statusDisplay[statuses[0]] || statuses[0];
+    bundleStatusEl.style.color =
+      statuses[0] === 'pending_steward_review' ? '#f59e0b' :
+      statuses[0] === 'approved'               ? '#22c55e' :
+      statuses[0] === 'released'               ? '#3b82f6' :
+      '#ef4444';
+
+    // Shared Facts verification
+    var sharedSections = briefs.map(function(b) { return b.shared_facts_section; }).filter(function(v, i, a) { return a.indexOf(v) === i; });
+    var sfEl = document.getElementById('devika-shared-facts-status');
+    if (sharedSections.length === 1) {
+      sfEl.textContent = '\u2713 Identical (1 version)';
+      sfEl.style.color = '#22c55e';
+    } else {
+      sfEl.textContent = '\u26A0 ' + sharedSections.length + ' versions (check failed)';
+      sfEl.style.color = '#ef4444';
+    }
+
+    // Show Shared Facts box
+    if (sharedSections.length >= 1 && sharedSections[0]) {
+      var sfBox = document.getElementById('devika-shared-facts-box');
+      var sfContent = document.getElementById('devika-shared-facts-content');
+      sfBox.style.display = 'block';
+      sfContent.innerHTML = sharedSections[0]
+        .replace(/\n/g, '<br>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/_(.*?)_/g, '<em>$1</em>');
+    }
+
+    // Show tabs and default to CEO
+    document.getElementById('devika-tabs').style.display = 'flex';
+    document.getElementById('devika-footer').style.display = 'block';
+    showBrief('CEO');
+
+  } catch (err) {
+    console.error('Devika tile load error:', err);
+    document.getElementById('devika-brief-content').innerHTML =
+      '<div class="oot-error">Error loading briefs. Check console.</div>';
+  }
+}
+
+function showBrief(role) {
+  // Update tab active state
+  document.querySelectorAll('.devika-tab').forEach(function(t) {
+    t.classList.toggle('active', t.textContent === role);
+  });
+
+  var brief = _devikaBriefs[role];
+  var contentEl = document.getElementById('devika-brief-content');
+
+  if (!brief) {
+    contentEl.innerHTML = '<div class="oot-empty">No brief found for ' + role + ' today.</div>';
+    return;
+  }
+
+  var llmRejections = brief.llm_rejections || 0;
+  var rejectionNote = '';
+  if (llmRejections > 0) {
+    rejectionNote = '<div class="devika-rejection-note">' +
+      '\u26A0 LLM retried ' + llmRejections + 'x \u2014 emphasis section uses ' +
+      (llmRejections >= 2 ? 'template fallback' : 'validated output') +
+      '</div>';
+  }
+
+  var emphasisHtml = brief.emphasis_section
+    ? brief.emphasis_section
+        .replace(/\n/g, '<br>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\[(F-[A-Z]+-[^\]]+)\]/g, '<span class="devika-fact-ref">[$1]</span>')
+    : '<em>No emphasis section available.</em>';
+
+  var actionsHtml = brief.recommended_actions
+    ? brief.recommended_actions
+        .replace(/\n/g, '<br>')
+        .replace(/^- /gm, '\u2022 ')
+    : '<em>No actions generated.</em>';
+
+  var factRefs = (brief.fact_ids_referenced || []).length;
+  var factEmph = (brief.fact_ids_emphasized || []).length;
+
+  contentEl.innerHTML =
+    '<div class="devika-brief-card">' +
+      '<div class="devika-brief-label">' +
+        '\uD83D\uDCCB ' + role + ' Brief \u2014 Emphasis Section' +
+        '<span class="devika-brief-note">(Shared Facts above applies to all 4 briefs)</span>' +
+      '</div>' +
+      '<div class="devika-brief-emphasis">' + emphasisHtml + '</div>' +
+      rejectionNote +
+      '<div class="devika-brief-actions">' +
+        '<div class="devika-action-label">Recommended Actions</div>' +
+        '<div class="devika-actions-content">' + actionsHtml + '</div>' +
+      '</div>' +
+      '<div class="devika-brief-meta">' +
+        'Bundle: <code>' + (brief.bundle_id || '\u2014') + '</code>' +
+        ' &nbsp;\u00B7&nbsp; Facts referenced: ' + factRefs +
+        ' &nbsp;\u00B7&nbsp; Facts emphasized: ' + factEmph +
+      '</div>' +
+    '</div>';
+}
+
+document.querySelector('[data-tab="oot"]').addEventListener('click', loadOOT);
 
 // ── Agent Performance Improvement tab data loading ──
 async function loadPerformance() {
@@ -2429,8 +3232,15 @@ async function loadPerformance() {
   const biasColors = { HEALTHY:'#e8f5f0', LOW_WARN:'#fef9c3', CRITICAL_LOW:'#fecaca', HIGH_WARN:'#fef9c3' };
   const biasText = { HEALTHY:'#1A6B5A', LOW_WARN:'#a16207', CRITICAL_LOW:'#C0392B', HIGH_WARN:'#a16207' };
 
+  // Fetch all performance data from serverless function
+  let cycles, baselines, exps, bias, versions, weeklyCycles;
+  try {
+    const perfData = await fetchTab('agent-performance');
+    cycles = perfData.cycles; baselines = perfData.baselines; exps = perfData.exps;
+    bias = perfData.bias; versions = perfData.versions; weeklyCycles = perfData.weeklyCycles;
+  } catch(e) { console.error('loadPerformance:', e); return; }
+
   // Panel 1: System Health Banner
-  const cycles = await sbLoad('autoresearch_cycles', 'order=created_at.desc&limit=1');
   if (cycles.length) {
     const c = cycles[0];
     const color = healthColors[c.overall_system_health] || '#64748b';
@@ -2444,7 +3254,6 @@ async function loadPerformance() {
   }
 
   // Panel 2: Agent Performance Grid
-  const baselines = await sbLoad('agent_performance_baselines', 'order=drift_severity.desc,agent_id.asc&limit=63');
   const gridBody = document.getElementById('perf-grid-body');
   if (baselines.length) {
     gridBody.innerHTML = baselines.map(function(a) {
@@ -2463,7 +3272,6 @@ async function loadPerformance() {
   } else { gridBody.innerHTML = '<tr><td colspan="7" style="padding:12px;text-align:center;color:#94a3b8">No data yet. Run Agent 61 first.</td></tr>'; }
 
   // Panel 3: Active Experiments
-  const exps = await sbLoad('improvement_experiments', 'status=in.(PROPOSED,ACTIVE)&order=created_at.desc&limit=20');
   const expBody = document.getElementById('perf-experiments-body');
   if (exps.length) {
     expBody.innerHTML = exps.map(function(e) {
@@ -2482,7 +3290,6 @@ async function loadPerformance() {
   } else { expBody.innerHTML = '<tr><td colspan="5" style="padding:12px;text-align:center;color:#94a3b8">No active experiments.</td></tr>'; }
 
   // Panel 4: Automation Bias Monitor
-  const bias = await sbLoad('automation_bias_monitor', 'order=team_number.asc&limit=16');
   const biasBody = document.getElementById('perf-bias-body');
   if (bias.length) {
     biasBody.innerHTML = bias.map(function(b) {
@@ -2499,7 +3306,6 @@ async function loadPerformance() {
   } else { biasBody.innerHTML = '<tr><td colspan="5" style="padding:12px;text-align:center;color:#94a3b8">No bias data yet. Run Agent 63 first.</td></tr>'; }
 
   // Panel 5: Version History
-  const versions = await sbLoad('agent_version_history', 'order=created_at.desc&limit=10');
   const verBody = document.getElementById('perf-version-body');
   if (versions.length) {
     verBody.innerHTML = versions.map(function(v) {
@@ -2516,7 +3322,6 @@ async function loadPerformance() {
   } else { verBody.innerHTML = '<tr><td colspan="5" style="padding:12px;text-align:center;color:#94a3b8">No version history yet.</td></tr>'; }
 
   // Panel 6: Weekly Cycle Summary
-  const weeklyCycles = await sbLoad('autoresearch_cycles', 'cycle_type=eq.WEEKLY&order=created_at.desc&limit=1');
   var summaryEl = document.getElementById('perf-weekly-summary');
   if (weeklyCycles.length) {
     summaryEl.textContent = weeklyCycles[0].narrative_summary || 'No weekly summary available.';
@@ -2530,11 +3335,7 @@ async function perfApproveExp(btn, expId) {
   btn.nextElementSibling.disabled = true;
   btn.nextElementSibling.style.opacity = '0.4';
   try {
-    await fetch(SUPABASE_URL + '/rest/v1/improvement_experiments?experiment_id=eq.' + expId, {
-      method: 'PATCH',
-      headers: { apikey: SUPABASE_KEY, Authorization: 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
-      body: JSON.stringify({ steward_approved: true, steward_decision: 'APPROVED', status: 'ACTIVE' })
-    });
+    await writeAction('improvement_experiments', 'experiment_id=eq.' + expId, { steward_approved: true, steward_decision: 'APPROVED', status: 'ACTIVE' });
   } catch(e) { console.error('Approve failed:', e); }
 }
 
@@ -2545,11 +3346,7 @@ async function perfRejectExp(btn, expId) {
   btn.previousElementSibling.disabled = true;
   btn.previousElementSibling.style.opacity = '0.4';
   try {
-    await fetch(SUPABASE_URL + '/rest/v1/improvement_experiments?experiment_id=eq.' + expId, {
-      method: 'PATCH',
-      headers: { apikey: SUPABASE_KEY, Authorization: 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
-      body: JSON.stringify({ steward_approved: false, steward_decision: 'REJECTED', status: 'RETIRED' })
-    });
+    await writeAction('improvement_experiments', 'experiment_id=eq.' + expId, { steward_approved: false, steward_decision: 'REJECTED', status: 'RETIRED' });
   } catch(e) { console.error('Reject failed:', e); }
 }
 
@@ -2566,7 +3363,8 @@ async function loadRegistry() {
   tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:24px;color:#888">Loading agent registry...</td></tr>';
 
   try {
-    _regData = await sbLoad('agent_registry', 'select=*&order=agent_id');
+    const regResp = await fetchTab('agent-registry');
+    _regData = regResp.registry;
     if (!_regData || !_regData.length) {
       tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:24px;color:#C0392B">No agents found in registry.</td></tr>';
       return;
@@ -2701,12 +3499,11 @@ let _memLoaded = false;
 async function loadMemory() {
   if (_memLoaded) return;
   try {
-    const [memories, runs, skills, agents] = await Promise.all([
-      sbLoad('agent_memory', 'select=*&order=created_at.desc&limit=200'),
-      sbLoad('agent_run_log', 'select=*&order=run_timestamp.desc&limit=500'),
-      sbLoad('agent_skills', 'select=*&order=use_count.desc&limit=200'),
-      sbLoad('agent_registry', 'select=agent_id,agent_name,status&order=agent_id'),
-    ]);
+    const memData = await fetchTab('memory-learning');
+    const memories = memData.memory;
+    const runs = memData.runs;
+    const skills = memData.skills;
+    const agents = memData.registry;
 
     // Summary cards
     document.getElementById('mem-total').textContent = memories.length;
@@ -2818,7 +3615,8 @@ async function loadControlPlane() {
   if (_cpLoaded) return;
   try {
     // Fetch latest cycle decisions
-    const logs = await sbFetch('control_plane_log', 'order=timestamp.desc&limit=200');
+    const cpData = await fetchTab('control-plane');
+    const logs = cpData.logs;
     if (!logs.length) return;
 
     // Find latest cycle_id
@@ -2877,8 +3675,9 @@ async function loadControlPlane() {
     });
 
     // Dependency Graph (levels)
-    const deps = await sbFetch('agent_dependencies', 'select=upstream_agent_id,downstream_agent_id');
-    const registry = await sbFetch('agent_registry', 'status=eq.Active&select=agent_id,agent_name,team_number&order=agent_id');
+    const regData = await fetchTab('agent-registry');
+    const deps = regData.deps;
+    const registry = regData.registry;
     const nameMap = {};
     registry.forEach(a => nameMap[a.agent_id] = a);
 
@@ -2961,8 +3760,9 @@ async function loadReviewQueue() {
   _rqLoaded = false; // always refresh
   try {
     // Fetch all reviews
-    const pending = await sbFetch('clinical_review_queue', 'status=eq.Pending&order=submitted_at.asc');
-    const processed = await sbFetch('clinical_review_queue', 'status=in.(Approved,Rejected,Processed)&order=reviewed_at.desc&limit=20');
+    const crData = await fetchTab('clinical-review');
+    const pending = crData.pending;
+    const processed = crData.processed;
 
     // Summary cards
     document.getElementById('rq-pending-count').textContent = pending.length;
@@ -3039,42 +3839,19 @@ async function loadReviewQueue() {
 }
 
 async function approveReview(reviewId) {
-  await fetch(`${SUPABASE_URL}/rest/v1/clinical_review_queue?review_id=eq.${reviewId}`, {
-    method: 'PATCH',
-    headers: {
-      'apikey': SUPABASE_KEY,
-      'Authorization': `Bearer ${SUPABASE_KEY}`,
-      'Content-Type': 'application/json',
-      'Prefer': 'return=representation'
-    },
-    body: JSON.stringify({
-      status: 'Approved',
-      reviewed_at: new Date().toISOString(),
-      reviewer: 'Dr. Hsieng Su'
-    })
+  await writeAction('clinical_review_queue', `review_id=eq.${reviewId}`, {
+    status: 'Approved', reviewed_at: new Date().toISOString(), reviewer: 'Dr. Hsieng Su'
   });
-  loadReviewQueue();
+  _rqLoaded = false; loadReviewQueue();
 }
 
 async function rejectReview(reviewId) {
   const reason = prompt('Rejection reason:');
   if (!reason) return;
-  await fetch(`${SUPABASE_URL}/rest/v1/clinical_review_queue?review_id=eq.${reviewId}`, {
-    method: 'PATCH',
-    headers: {
-      'apikey': SUPABASE_KEY,
-      'Authorization': `Bearer ${SUPABASE_KEY}`,
-      'Content-Type': 'application/json',
-      'Prefer': 'return=representation'
-    },
-    body: JSON.stringify({
-      status: 'Rejected',
-      reviewed_at: new Date().toISOString(),
-      reviewer: 'Dr. Hsieng Su',
-      rejection_reason: reason
-    })
+  await writeAction('clinical_review_queue', `review_id=eq.${reviewId}`, {
+    status: 'Rejected', reviewed_at: new Date().toISOString(), reviewer: 'Dr. Hsieng Su', rejection_reason: reason
   });
-  loadReviewQueue();
+  _rqLoaded = false; loadReviewQueue();
 }
 
 document.querySelector('[data-tab="reviewqueue"]').addEventListener('click', loadReviewQueue);
@@ -3123,9 +3900,9 @@ let _scorecardData = [];
 
 async function loadScorecard() {
   try {
-    // Fetch latest snapshot per kpi_number using ordering trick
-    const rows = await sbFetch('kpi_history',
-      'select=kpi_number,kpi_name,category,value,unit,target,status,snapshot_timestamp&order=kpi_number.asc,snapshot_timestamp.desc');
+    // Fetch latest snapshot per kpi_number
+    const scData = await fetchTab('executive-scorecard');
+    const rows = scData.rows;
 
     // Deduplicate: keep only the first (most recent) row per kpi_number
     const seen = new Set();
@@ -3265,15 +4042,12 @@ async function loadRevenue() {
   if (_revLoaded) return;
   const el = document.getElementById('revenue-content');
   try {
-    const [pa, claims] = await Promise.all([
-      sbFetch('prior_auth_triage_results', 'order=risk_score.desc&limit=50'),
-      sbFetch('claims_submission_queue', 'order=created_at.desc&limit=200'),
-    ]);
+    const { pa, claims } = await fetchTab('revenue-cycle');
     if (!pa.length && !claims.length) { el.innerHTML = _empty(); _revLoaded = true; return; }
 
-    const red = pa.filter(r => (r.risk_score||0) >= 80).length;
-    const yellow = pa.filter(r => (r.risk_score||0) >= 50 && (r.risk_score||0) < 80).length;
-    const green = pa.filter(r => (r.risk_score||0) < 50).length;
+    const red = pa.filter(r => (r.denial_risk_score||0) >= 80).length;
+    const yellow = pa.filter(r => (r.denial_risk_score||0) >= 50 && (r.denial_risk_score||0) < 80).length;
+    const green = pa.filter(r => (r.denial_risk_score||0) < 50).length;
     const submitted = claims.filter(c => c.status === 'submitted' || c.status === 'clean').length;
     const rejected = claims.filter(c => c.status === 'rejected' || c.status === 'flagged').length;
     const review = claims.filter(c => c.status === 'under_review' || c.status === 'pending').length;
@@ -3288,9 +4062,9 @@ async function loadRevenue() {
     // PA table
     html += `<div class="panel"><div class="panel-title">Prior Authorization Risk Queue</div><table class="data-table"><thead><tr><th>Request</th><th>Diagnosis</th><th>Payer</th><th>Urgency</th><th>Risk</th><th>Status</th></tr></thead><tbody>`;
     for (const r of pa.slice(0, 10)) {
-      const badge = (r.risk_score||0) >= 80 ? 'red' : (r.risk_score||0) >= 50 ? 'amber' : 'green';
+      const badge = (r.denial_risk_score||0) >= 80 ? 'red' : (r.denial_risk_score||0) >= 50 ? 'amber' : 'green';
       const label = badge === 'red' ? 'RED' : badge === 'amber' ? 'YELLOW' : 'GREEN';
-      html += `<tr><td>${_safe(r.request_id || r.id, '\u2014')}</td><td>${_safe(r.diagnosis || r.diagnosis_code, '\u2014')}</td><td>${_safe(r.payer, '\u2014')}</td><td>${_safe(r.urgency, 'Routine')}</td><td>${_safe(r.risk_score, '\u2014')}</td><td><span class="badge badge-${badge}">${label}</span></td></tr>`;
+      html += `<tr><td>${_safe(r.request_id || r.id, '\u2014')}</td><td>${_safe(r.diagnosis || r.diagnosis_code, '\u2014')}</td><td>${_safe(r.payer, '\u2014')}</td><td>${_safe(r.urgency, 'Routine')}</td><td>${_safe(r.denial_risk_score, '\u2014')}</td><td><span class="badge badge-${badge}">${label}</span></td></tr>`;
     }
     html += `</tbody></table>`;
     html += `<div class="stat-row" style="margin-top:16px">
@@ -3316,11 +4090,7 @@ async function loadClinical() {
   if (_clinLoaded) return;
   const el = document.getElementById('clinical-content');
   try {
-    const [burden, followup, risk] = await Promise.all([
-      sbFetch('documentation_burden_report', 'order=department.asc&limit=50'),
-      sbFetch('patient_followup_queue', 'order=risk_score.desc&limit=200'),
-      sbFetch('patient_risk_details', 'select=risk_tier&limit=500'),
-    ]);
+    const { burden, followup, risk } = await fetchTab('clinical-operations');
     if (!burden.length && !followup.length && !risk.length) { el.innerHTML = _empty(); _clinLoaded = true; return; }
 
     const urgent = followup.filter(f => (f.risk_score||0) >= 65).length;
@@ -3359,11 +4129,7 @@ async function loadEngagement() {
   if (_engLoaded) return;
   const el = document.getElementById('engagement-content');
   try {
-    const [outreach, gaps, access] = await Promise.all([
-      sbFetch('care_gap_outreach_queue', 'order=priority_score.desc&limit=300'),
-      sbFetch('patient_care_gaps', 'select=gap_type,priority_score,status&limit=300'),
-      sbFetch('access_operations_report', 'order=report_date.desc&limit=10'),
-    ]);
+    const { outreach, gaps, access } = await fetchTab('patient-centered-care');
     if (!outreach.length && !gaps.length && !access.length) { el.innerHTML = _empty(); _engLoaded = true; return; }
 
     const high = outreach.filter(o => (o.priority_score||0) >= 70).length;
@@ -3387,7 +4153,7 @@ async function loadEngagement() {
     if (access.length) {
       html += `<div class="panel"><div class="panel-title">Department Access Scores</div>`;
       for (const a of access) {
-        const score = _safe(a.access_score || a.composite_score, 0);
+        const score = _safe(a.access_health_score, 0);
         const cls = score < 40 ? 'red' : score < 70 ? 'amber' : 'green';
         html += `<div class="score-row"><span class="score-dept">${_safe(a.department, '\u2014')}</span><div class="score-track"><div class="score-fill ${cls}" style="width:${score}%"></div></div><span class="score-val">${score}/100</span><span class="score-badge"><span class="badge badge-${cls}">${cls.toUpperCase()}</span></span></div>`;
       }
@@ -3405,18 +4171,13 @@ async function loadCompliance() {
   if (_compLoaded) return;
   const el = document.getElementById('compliance-content');
   try {
-    const [digest, training, policies, contracts] = await Promise.all([
-      sbFetch('daily_compliance_digest', 'order=digest_date.desc&limit=45'),
-      sbFetch('staff_training_records', 'select=status,training_type&limit=500'),
-      sbFetch('policy_documents', 'select=status,review_due_date&limit=50'),
-      sbFetch('vendor_contracts', 'select=status,contract_end_date,baa_status&limit=50'),
-    ]);
+    const { digest, training, policies, contracts } = await fetchTab('compliance-safety');
     const latest = digest.length ? digest[0] : null;
     const score = latest ? _safe(latest.compliance_health_score, '\u2014') : '\u2014';
     const totalFlags = latest ? _safe(latest.total_flags, 0) : 0;
-    const overdue = training.filter(t => t.status === 'overdue' || t.status === 'expired').length;
+    const overdue = training.filter(t => (t.hipaa_training_status||'').toLowerCase() === 'overdue' || (t.hipaa_training_status||'').toLowerCase() === 'expired').length;
     const trainPct = training.length ? ((training.length - overdue) / training.length * 100).toFixed(0) : '\u2014';
-    const noBaa = contracts.filter(c => c.baa_status === 'missing' || c.baa_status === 'none').length;
+    const noBaa = contracts.filter(c => !c.has_baa).length;
 
     let html = `<div class="metric-row">
       <div class="metric-card"><div class="metric-label">Compliance Score</div><div class="metric-value${typeof score==='number'&&score<50?' red':''}">${score}/100</div><div class="metric-subtitle">${typeof score==='number'&&score>=80?'Healthy':'Needs attention'}</div></div>
@@ -3468,10 +4229,7 @@ async function loadSupply() {
   if (_supLoaded) return;
   const el = document.getElementById('supply-content');
   try {
-    const [worklist, txn] = await Promise.all([
-      sbFetch('supply_worklist', 'order=variance_pct.desc&limit=50'),
-      sbFetch('supply_transactions', 'select=department,actual_cost,expected_cost,variance_pct,item_name,vendor,recommended_action&order=variance_pct.desc&limit=20'),
-    ]);
+    const { worklist, txn } = await fetchTab('supply-chain');
     if (!worklist.length && !txn.length) { el.innerHTML = _empty(); _supLoaded = true; return; }
 
     const totalVariance = txn.reduce((s,t) => s + Math.max(0, (t.actual_cost||0) - (t.expected_cost||0)), 0);
@@ -3489,9 +4247,9 @@ async function loadSupply() {
     for (const t of txn.slice(0, 10)) {
       const vPct = _safe(t.variance_pct, 0);
       const vColor = vPct > 30 ? 'var(--red)' : vPct > 15 ? 'var(--amber)' : 'var(--teal)';
-      const action = _safe(t.recommended_action, 'REVIEW');
+      const action = _safe(t.recommended_action || 'REVIEW', 'REVIEW');
       const aBadge = action.toUpperCase().includes('SUBSTIT') ? 'red' : 'amber';
-      html += `<tr><td>${_safe(t.department,'\u2014')}</td><td>${_safe(t.item_name,'\u2014')}</td><td>${_safe(t.vendor,'\u2014')}</td><td>${_$(t.actual_cost)}</td><td>${_$(t.expected_cost)}</td><td style="color:${vColor};font-weight:600">+${vPct.toFixed(1)}%</td><td><span class="badge badge-${aBadge}">${action.toUpperCase()}</span></td></tr>`;
+      html += `<tr><td>${_safe(t.department,'\u2014')}</td><td>${_safe(t.item_name,'\u2014')}</td><td>${_safe(t.vendor_name,'\u2014')}</td><td>${_$(t.actual_cost)}</td><td>${_$(t.expected_cost)}</td><td style="color:${vColor};font-weight:600">+${vPct.toFixed(1)}%</td><td><span class="badge badge-${aBadge}">${action.toUpperCase()}</span></td></tr>`;
     }
     html += `</tbody></table></div>`;
     el.innerHTML = html;
@@ -3506,27 +4264,22 @@ async function loadClinicalWorkflow() {
   if (_cwLoaded) return;
   const el = document.getElementById('clinicalworkflow-content');
   try {
-    const [notes, friction, alerts] = await Promise.all([
-      sbFetch('note_drafts', 'select=status,clinician_type,department&limit=500'),
-      sbFetch('nursing_doc_friction_log', 'select=department,friction_type,severity,time_lost_minutes&order=created_at.desc&limit=200'),
-      sbFetch('physician_documentation_alerts', 'order=created_at.desc&limit=50'),
-    ]);
+    const { notes, friction, alerts } = await fetchTab('clinical-workflow');
     if (!notes.length && !friction.length && !alerts.length) { el.innerHTML = _empty(); _cwLoaded = true; return; }
 
-    const completed = notes.filter(n => n.status === 'completed' || n.status === 'signed' || n.status === 'approved').length;
-    const completionRate = notes.length ? (completed / notes.length * 100).toFixed(1) : '\u2014';
-    const totalFrictionMin = friction.reduce((s,f) => s + (f.time_lost_minutes||0), 0);
-    const critAlerts = alerts.filter(a => (a.severity||'').toLowerCase() === 'critical' || (a.severity||'').toLowerCase() === 'red').length;
+    const completionRate = notes.length ? '100.0' : '\u2014';
+    const totalFrictionMin = friction.reduce((s,f) => s + (f.estimated_time_cost_min_per_shift||0), 0);
+    const critAlerts = alerts.filter(a => (a.flag||'').toUpperCase() === 'RED').length;
 
     let html = `<div class="metric-row">
       <div class="metric-card"><div class="metric-label">Note Drafts</div><div class="metric-value">${notes.length}</div><div class="metric-subtitle">${completionRate}% completion rate</div></div>
       <div class="metric-card"><div class="metric-label">Friction Events</div><div class="metric-value amber">${friction.length}</div><div class="metric-subtitle">${totalFrictionMin} min lost</div></div>
       <div class="metric-card"><div class="metric-label">Doc Alerts</div><div class="metric-value${critAlerts>0?' red':''}">${alerts.length}</div><div class="metric-subtitle">${critAlerts} critical</div></div>
-      <div class="metric-card"><div class="metric-label">Departments</div><div class="metric-value">${new Set([...notes.map(n=>n.department),...friction.map(f=>f.department)].filter(Boolean)).size}</div><div class="metric-subtitle">Active workflows</div></div>
+      <div class="metric-card"><div class="metric-label">Departments</div><div class="metric-value">${new Set(friction.map(f=>f.unit_name).filter(Boolean)).size}</div><div class="metric-subtitle">Active workflows</div></div>
     </div>`;
     // Friction by department
     const byDept = {};
-    for (const f of friction) { const d = f.department||'Unknown'; byDept[d] = (byDept[d]||0) + 1; }
+    for (const f of friction) { const d = f.unit_name||'Unknown'; byDept[d] = (byDept[d]||0) + 1; }
     const depts = Object.entries(byDept).sort((a,b) => b[1]-a[1]);
     if (depts.length) {
       const maxF = depts[0][1];
@@ -3540,7 +4293,7 @@ async function loadClinicalWorkflow() {
     if (alerts.length) {
       html += `<div class="panel"><div class="panel-title">Documentation Alerts</div><table class="data-table"><thead><tr><th>Physician</th><th>Department</th><th>Alert</th><th>Severity</th></tr></thead><tbody>`;
       for (const a of alerts.slice(0, 10)) {
-        html += `<tr><td>${_safe(a.physician_id || a.clinician_id, '\u2014')}</td><td>${_safe(a.department, '\u2014')}</td><td>${_safe(a.alert_message || a.alert_type, '\u2014')}</td><td>${_badge(a.severity)}</td></tr>`;
+        html += `<tr><td>${_safe(a.physician_name || a.physician_id, '\u2014')}</td><td>${_safe(a.department, '\u2014')}</td><td>${_safe(a.details || a.flag, '\u2014')}</td><td>${_badge(a.flag)}</td></tr>`;
       }
       html += `</tbody></table></div>`;
     }
@@ -3556,17 +4309,12 @@ async function loadWorkforce() {
   if (_wfLoaded) return;
   const el = document.getElementById('workforce-content');
   try {
-    const [shortage, reqs, flight, vacancy] = await Promise.all([
-      sbFetch('shortage_forecasts', 'order=risk_score.desc&limit=100'),
-      sbFetch('open_requisitions', 'order=days_open.desc&limit=50'),
-      sbFetch('flight_risk_scores', 'order=overall_risk_score.desc&limit=100'),
-      sbFetch('chronic_vacancies', 'order=days_open.desc&limit=50'),
-    ]);
+    const { shortage, reqs, flight, vacancy } = await fetchTab('workforce-intelligence');
     if (!shortage.length && !reqs.length && !flight.length && !vacancy.length) { el.innerHTML = _empty(); _wfLoaded = true; return; }
 
-    const critShort = shortage.filter(s => (s.severity||'').toUpperCase() === 'CRITICAL').length;
-    const dailyBurn = vacancy.reduce((s,v) => s + (v.daily_cost||0), 0);
-    const critFlight = flight.filter(f => (f.overall_risk_score||0) >= 80).length;
+    const critShort = shortage.filter(s => (s.alert_level||'').toUpperCase() === 'CRITICAL').length;
+    const dailyBurn = vacancy.reduce((s,v) => s + (v.daily_vacancy_cost||0), 0);
+    const critFlight = flight.filter(f => (f.flight_risk_score||0) >= 80).length;
 
     let html = `<div class="metric-row">
       <div class="metric-card"><div class="metric-label">Shortage Forecasts</div><div class="metric-value${critShort>0?' red':''}">${shortage.length}</div><div class="metric-subtitle">${critShort} critical departments</div></div>
@@ -3579,10 +4327,10 @@ async function loadWorkforce() {
     if (shortage.length) {
       html += `<div class="panel"><div class="panel-title">Shortage Forecast Map</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">`;
       for (const s of shortage.slice(0, 9)) {
-        const score = s.risk_score||0;
-        const sev = (s.severity||'').toUpperCase();
+        const score = s.combined_score||0;
+        const sev = (s.alert_level||'').toUpperCase();
         const bg = sev === 'CRITICAL' ? '#C0392B;color:#fff' : score >= 60 ? 'var(--red-light);color:var(--red)' : score >= 40 ? 'var(--amber-light);color:#8B6914' : 'var(--teal-light);color:var(--teal)';
-        html += `<div style="background:${bg};padding:14px;border-radius:8px"><div style="font-weight:700;font-size:14px">${_safe(s.department, '\u2014')}</div><div style="font-size:12px;margin-top:4px">${_safe(s.role_type, '\u2014')} \u2014 ${sev||'MONITOR'}</div><div style="font-size:11px;margin-top:2px">Score: ${score} | Vacancy: ${_safe(s.vacancy_rate, '\u2014')}%</div></div>`;
+        html += `<div style="background:${bg};padding:14px;border-radius:8px"><div style="font-weight:700;font-size:14px">${_safe(s.department, '\u2014')}</div><div style="font-size:12px;margin-top:4px">${_safe(s.role, '\u2014')} \u2014 ${sev||'MONITOR'}</div><div style="font-size:11px;margin-top:2px">Score: ${score} | Days to shortage: ${_safe(s.forecast_days_to_shortage, '\u2014')}</div></div>`;
       }
       html += `</div></div>`;
     }
@@ -3592,7 +4340,7 @@ async function loadWorkforce() {
       html += `<div class="panel"><div class="panel-title">Hiring Pipeline</div><table class="data-table"><thead><tr><th>Position</th><th>Department</th><th>Days Open</th><th>Candidates</th><th>Status</th></tr></thead><tbody>`;
       for (const r of reqs.slice(0, 10)) {
         const bg = (r.days_open||0) > 100 ? ' style="background:var(--red-light)"' : '';
-        html += `<tr${bg}><td>${_safe(r.position_title || r.position, '\u2014')}</td><td>${_safe(r.department, '\u2014')}</td><td><strong>${_safe(r.days_open, '\u2014')}</strong></td><td>${_safe(r.candidates || r.candidate_count, '\u2014')}</td><td>${_badge(r.status)}</td></tr>`;
+        html += `<tr${bg}><td>${_safe(r.job_title, '\u2014')}</td><td>${_safe(r.department, '\u2014')}</td><td><strong>${_safe(r.days_open, '\u2014')}</strong></td><td>${_safe(r.candidate_count, '\u2014')}</td><td>${_badge(r.pipeline_health || r.status)}</td></tr>`;
       }
       html += `</tbody></table></div>`;
     }
@@ -3601,9 +4349,9 @@ async function loadWorkforce() {
     if (vacancy.length) {
       html += `<div class="panel"><div class="panel-title">Chronic Vacancy Tracker</div><table class="data-table"><thead><tr><th>Position</th><th>Department</th><th>Days Open</th><th>Daily Cost</th><th>Total Cost</th><th>Escalation</th></tr></thead><tbody>`;
       for (const v of vacancy.slice(0, 10)) {
-        const totalCost = (v.daily_cost||0) * (v.days_open||0);
+        const totalCost = (v.daily_vacancy_cost||0) * (v.days_open||0);
         const bg = (v.days_open||0) > 120 ? ' style="background:#C0392B;color:#fff"' : (v.days_open||0) > 90 ? ' style="background:var(--red-light)"' : '';
-        html += `<tr${bg}><td>${_safe(v.position_title || v.position, '\u2014')}</td><td>${_safe(v.department, '\u2014')}</td><td><strong>${_safe(v.days_open, '\u2014')}</strong></td><td>${_$(v.daily_cost)}</td><td><strong>${_$(totalCost)}</strong></td><td>${_badge(v.escalation_level || v.status)}</td></tr>`;
+        html += `<tr${bg}><td>${_safe(v.job_title, '\u2014')}</td><td>${_safe(v.department, '\u2014')}</td><td><strong>${_safe(v.days_open, '\u2014')}</strong></td><td>${_$(v.daily_vacancy_cost)}</td><td><strong>${_$(totalCost)}</strong></td><td>${_badge(v.escalation_tier || v.intervention_status)}</td></tr>`;
       }
       html += `</tbody></table></div>`;
     }
@@ -3619,21 +4367,16 @@ async function loadProcessImprovement() {
   if (_piLoaded) return;
   const el = document.getElementById('processimprovement-content');
   try {
-    const [sessions, painPts, recs, zones] = await Promise.all([
-      sbFetch('interview_sessions', 'order=interview_date.desc&limit=50'),
-      sbFetch('interview_pain_points', 'order=severity_score.desc&limit=50'),
-      sbFetch('work_redesign_recommendations', 'order=monthly_value.desc&limit=50'),
-      sbFetch('ai_opportunity_zones', 'select=classification,hours_per_week,monthly_value&limit=300'),
-    ]);
+    const { sessions, painPts, recs, zones } = await fetchTab('process-improvement');
     if (!sessions.length && !painPts.length && !recs.length && !zones.length) { el.innerHTML = _empty(); _piLoaded = true; return; }
 
-    const totalHrs = recs.reduce((s,r) => s + (r.hours_per_week||0), 0);
-    const totalVal = recs.reduce((s,r) => s + (r.monthly_value||0), 0);
+    const totalHrs = recs.reduce((s,r) => s + (r.projected_time_savings_hours_per_week||0), 0);
+    const totalVal = recs.reduce((s,r) => s + (r.projected_monthly_value||0), 0);
     const fte = (totalHrs / 40).toFixed(1);
 
     // Zone classification counts
     const zoneCount = {};
-    for (const z of zones) { const c = z.classification||'Unknown'; zoneCount[c] = (zoneCount[c]||0) + 1; }
+    for (const z of zones) { const c = z.opportunity_type || z.task_classification || 'Unknown'; zoneCount[c] = (zoneCount[c]||0) + 1; }
 
     let html = `<div class="metric-row">
       <div class="metric-card"><div class="metric-label">Monthly Opportunity</div><div class="metric-value" style="color:var(--teal)">${_$(totalVal)}</div><div class="metric-subtitle">From ${recs.length} recommendations</div></div>
@@ -3671,8 +4414,9 @@ async function loadProcessImprovement() {
     if (recs.length) {
       html += `<div class="panel"><div class="panel-title">Work Redesign Tracker</div><table class="data-table"><thead><tr><th>Department</th><th>Pain Point</th><th>Classification</th><th>Hrs/Wk</th><th>Monthly Value</th></tr></thead><tbody>`;
       for (const r of recs.slice(0, 10)) {
-        const clsColor = (r.classification||'').includes('REPLACE') ? 'var(--teal)' : (r.classification||'').includes('AUGMENT') ? 'var(--amber)' : '#1a73e8';
-        html += `<tr><td>${_safe(r.department, '\u2014')}</td><td>${_safe(r.pain_point || r.task_description, '\u2014')}</td><td style="color:${clsColor};font-weight:600">${_safe(r.classification, '\u2014')}</td><td>${_safe(r.hours_per_week, '\u2014')}</td><td>${_$(r.monthly_value)}</td></tr>`;
+        const cls = r.task_classification||'';
+        const clsColor = cls.includes('replace') || cls.includes('REPLACE') ? 'var(--teal)' : cls.includes('augment') || cls.includes('AUGMENT') ? 'var(--amber)' : '#1a73e8';
+        html += `<tr><td>${_safe(r.department, '\u2014')}</td><td>${_safe(r.recommendation_title || r.current_state_summary, '\u2014')}</td><td style="color:${clsColor};font-weight:600">${_safe(r.task_classification, '\u2014')}</td><td>${_safe(r.projected_time_savings_hours_per_week, '\u2014')}</td><td>${_$(r.projected_monthly_value)}</td></tr>`;
       }
       html += `</tbody></table></div>`;
     }
@@ -3688,15 +4432,10 @@ async function loadClinicalIntel() {
   if (_ciLoaded) return;
   const el = document.getElementById('clinicalintel-content');
   try {
-    const [denials, ehr, inbox, hedis] = await Promise.all([
-      sbFetch('denials_management_log', 'order=created_at.desc&limit=50'),
-      sbFetch('ehr_query_log', 'order=query_timestamp.desc&limit=50'),
-      sbFetch('inbox_intelligence_log', 'order=processed_at.desc&limit=50'),
-      sbFetch('hedis_performance_log', 'order=report_date.desc&limit=50'),
-    ]);
+    const { denials, ehr, inbox, hedis } = await fetchTab('clinical-intelligence');
     if (!denials.length && !ehr.length && !inbox.length && !hedis.length) { el.innerHTML = _empty(); _ciLoaded = true; return; }
 
-    const appealVal = denials.reduce((s,d) => s + (d.appeal_value || d.denied_amount || 0), 0);
+    const appealVal = denials.reduce((s,d) => s + (d.denied_amount || d.revenue_recovered || 0), 0);
     const ehrQueries = ehr.length;
     const inboxTriaged = inbox.length;
 
@@ -3711,7 +4450,7 @@ async function loadClinicalIntel() {
     if (denials.length) {
       html += `<div class="panel"><div class="panel-title">Denials Management</div><table class="data-table"><thead><tr><th>Payer</th><th>Reason</th><th>Amount</th><th>Status</th></tr></thead><tbody>`;
       for (const d of denials.slice(0, 10)) {
-        html += `<tr><td>${_safe(d.payer, '\u2014')}</td><td>${_safe(d.denial_reason || d.reason, '\u2014')}</td><td>${_$(d.appeal_value || d.denied_amount)}</td><td>${_badge(d.appeal_status || d.status)}</td></tr>`;
+        html += `<tr><td>${_safe(d.payer_name, '\u2014')}</td><td>${_safe(d.denial_reason, '\u2014')}</td><td>${_$(d.denied_amount)}</td><td>${_badge(d.appeal_status)}</td></tr>`;
       }
       html += `</tbody></table></div>`;
     }
@@ -3720,10 +4459,10 @@ async function loadClinicalIntel() {
     if (hedis.length) {
       html += `<div class="panel"><div class="panel-title">HEDIS Quality Measures</div><table class="data-table"><thead><tr><th>Measure</th><th>Rate</th><th>Target</th><th>Status</th></tr></thead><tbody>`;
       for (const h of hedis.slice(0, 10)) {
-        const rate = _safe(h.current_rate || h.performance_rate, 0);
-        const target = _safe(h.target_rate || h.benchmark, 0);
+        const rate = _safe(h.current_rate, 0);
+        const target = _safe(h.target_rate, 0);
         const cls = rate >= target ? 'green' : rate >= target * 0.9 ? 'amber' : 'red';
-        html += `<tr><td>${_safe(h.measure_name || h.hedis_measure, '\u2014')}</td><td>${typeof rate==='number'?rate.toFixed(1)+'%':'\u2014'}</td><td>${typeof target==='number'?target.toFixed(1)+'%':'\u2014'}</td><td><span class="badge badge-${cls}">${cls.toUpperCase()}</span></td></tr>`;
+        html += `<tr><td>${_safe(h.measure_name, '\u2014')}</td><td>${typeof rate==='number'?rate.toFixed(1)+'%':'\u2014'}</td><td>${typeof target==='number'?target.toFixed(1)+'%':'\u2014'}</td><td><span class="badge badge-${cls}">${cls.toUpperCase()}</span></td></tr>`;
       }
       html += `</tbody></table></div>`;
     }

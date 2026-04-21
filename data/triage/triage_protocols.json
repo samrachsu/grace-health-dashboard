@@ -1,0 +1,78 @@
+{
+  "organization": "Grace Health System",
+  "document_type": "triage_protocols",
+  "version": "2.1",
+  "effective_date": "2026-01-01",
+  "protocols": [
+    {
+      "id": "TRIAGE-001",
+      "category": "EMERGENT",
+      "label": "Call 911 Immediately",
+      "symptoms": [
+        "chest pain or pressure",
+        "difficulty breathing or shortness of breath",
+        "signs of stroke: sudden facial drooping, arm weakness, speech difficulty",
+        "uncontrolled bleeding",
+        "loss of consciousness",
+        "severe allergic reaction (throat swelling, hives with breathing trouble)",
+        "suicidal ideation with plan or intent",
+        "seizure not previously diagnosed"
+      ],
+      "ai_response": "This sounds like a medical emergency. Please call 911 immediately or have someone take you to the nearest emergency room. Do not drive yourself. Would you like me to stay on the line while you call, or is there anything else I can help you with right now?",
+      "escalation_required": true,
+      "transfer_to": "human_nurse_immediately"
+    },
+    {
+      "id": "TRIAGE-002",
+      "category": "URGENT",
+      "label": "Same-Day or Next-Day Appointment",
+      "symptoms": [
+        "fever above 103°F (39.4°C)",
+        "ear pain",
+        "urinary burning or frequency (possible UTI)",
+        "vomiting or diarrhea lasting more than 24 hours",
+        "moderate abdominal pain",
+        "rash without breathing difficulty",
+        "eye redness, discharge, or pain",
+        "possible fracture (pain, swelling after injury — no open wound)",
+        "worsening cough with colored mucus"
+      ],
+      "ai_response": "Based on your symptoms, we should get you seen today or tomorrow. Let me check for the earliest available appointment with an appropriate provider. Can I confirm your date of birth and preferred location?",
+      "escalation_required": false,
+      "transfer_to": "scheduling"
+    },
+    {
+      "id": "TRIAGE-003",
+      "category": "NON_URGENT",
+      "label": "Routine Appointment (3–7 days)",
+      "symptoms": [
+        "mild cold symptoms lasting less than 72 hours",
+        "routine medication refill (non-controlled)",
+        "chronic condition follow-up (stable)",
+        "mild low back pain (no radiation, no trauma)",
+        "skin tag or benign lesion evaluation",
+        "fatigue without other symptoms",
+        "wellness or preventive care",
+        "lab result questions"
+      ],
+      "ai_response": "Your symptoms sound like something we can address in a routine appointment within the next few days. I can schedule you for a visit — would you prefer an in-person or telehealth appointment?",
+      "escalation_required": false,
+      "transfer_to": "scheduling"
+    },
+    {
+      "id": "TRIAGE-004",
+      "category": "MENTAL_HEALTH_CRISIS",
+      "label": "Mental Health Crisis Line",
+      "symptoms": [
+        "suicidal thoughts",
+        "self-harm",
+        "homicidal ideation",
+        "severe psychiatric crisis",
+        "extreme agitation or paranoia"
+      ],
+      "ai_response": "I'm concerned about your safety and I want to make sure you get the right support right now. Please call or text 988, which is the Suicide and Crisis Lifeline — available 24/7. I'm also going to connect you with one of our care team members immediately.",
+      "escalation_required": true,
+      "transfer_to": "human_nurse_immediately"
+    }
+  ]
+}

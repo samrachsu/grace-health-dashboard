@@ -1,0 +1,61 @@
+{
+  "organization": "Grace Health System",
+  "document_type": "medication_refill_policy",
+  "version": "2.0",
+  "effective_date": "2026-01-01",
+  "pharmacy_partner": "Grace Health Pharmacy — In-house and partnered with Walgreens, CVS",
+  "pharmacy_phone": "555-400-8000",
+  "refill_request_channels": [
+    "MyGrace Patient Portal (preferred — fastest, 24/7)",
+    "Grace Health Pharmacy line: 555-400-8000",
+    "Call center (non-controlled medications only)",
+    "Telehealth visit for controlled substances requiring new prescription"
+  ],
+  "policies": [
+    {
+      "category": "Non-Controlled Chronic Medications",
+      "examples": ["metformin", "lisinopril", "atorvastatin", "levothyroxine", "amlodipine", "sertraline", "omeprazole"],
+      "refill_process": "Patient or pharmacy can request refill via MyGrace portal, pharmacy fax, or call center. Provider will review within 2 business days. Allow 48–72 hours for processing.",
+      "requires_visit": "Only if no visit in the past 12 months or if patient reports a significant change in symptoms.",
+      "quantity_limit": "Up to 90-day supply",
+      "early_refill": "Most plans allow refill when 75% of supply is used. Check your insurance formulary."
+    },
+    {
+      "category": "Controlled Substances — Schedule II",
+      "examples": ["oxycodone", "Adderall (amphetamine)", "fentanyl", "Ritalin (methylphenidate)", "Vyvanse"],
+      "refill_process": "NEW PRESCRIPTION required for every fill. Cannot be called in or faxed in most states. Patient must have an in-person or eligible telehealth visit. Prescriptions issued electronically (EPCS).",
+      "requires_visit": "YES — required by federal law (DEA Schedule II). Visit must be within 30 days.",
+      "quantity_limit": "30-day supply maximum per prescription.",
+      "early_refill": "Not permitted. Law prohibits early fills for Schedule II substances."
+    },
+    {
+      "category": "Controlled Substances — Schedule III–V",
+      "examples": ["Xanax (alprazolam)", "Valium (diazepam)", "codeine", "Ambien (zolpidem)", "tramadol", "buprenorphine"],
+      "refill_process": "Provider may authorize up to 5 refills within 6 months. Patient must have an active treatment relationship. Telehealth prescribing rules apply (DEA 2024 regulations).",
+      "requires_visit": "Visit required at least every 6 months. More frequent visits may be required based on clinical judgment.",
+      "quantity_limit": "30-day supply per fill.",
+      "early_refill": "Cannot be filled more than 2 days early in most cases. Lost or stolen controlled substances: police report required."
+    },
+    {
+      "category": "Insulin and Diabetic Supplies",
+      "examples": ["insulin glargine (Lantus/Basaglar)", "insulin lispro (Humalog)", "metformin", "CGM supplies"],
+      "refill_process": "Can be requested through MyGrace portal or pharmacy. Provider review within 24 hours for patients with active diabetes diagnosis.",
+      "requires_visit": "Annual visit required. A1C monitoring recommended every 3 months.",
+      "quantity_limit": "90-day supply for stable patients.",
+      "early_refill": "Covered per insurance plan. Prior auth may be needed for newer analogs."
+    },
+    {
+      "category": "Specialty Medications",
+      "examples": ["biologics (adalimumab, etanercept)", "MS medications", "oncology supportive care", "HIV antiretrovirals"],
+      "refill_process": "Managed through Grace Health Specialty Pharmacy at 555-400-8500. Prior authorization typically required and renewed annually.",
+      "requires_visit": "Visit schedule varies by drug and diagnosis. Care coordinator will manage proactively.",
+      "quantity_limit": "30-day supply (specialty pharmacy manages shipment schedule).",
+      "early_refill": "Contact specialty pharmacy — managed on a case-by-case basis."
+    }
+  ],
+  "ai_response_guidance": {
+    "general_refill_request": "I can help request a refill for a non-controlled medication. Can you tell me the name of the medication and your date of birth so I can pull up your record? Controlled substances require a provider visit — I can schedule that for you.",
+    "controlled_substance_request": "I understand you need a refill for [medication]. Because this is a controlled substance, our provider is required to see you before issuing a new prescription. I can schedule a telehealth or in-person appointment for you — which would you prefer?",
+    "urgent_medication_need": "If you're running critically low on a life-sustaining medication like insulin or a heart medication, please let me know and I will flag this as urgent for our pharmacy team and provider. Please do not abruptly stop any chronic medication without speaking to your provider."
+  }
+}
